@@ -1,13 +1,13 @@
-.sample{
-	background-color: pink;
+body{
+	font-family: cursive;
 }
-.sample{
-	display: inline-block;
+.nitem{
+	
+	float: right;
 }
-.sample{
-	width: 200px;
-	height: 200px;
+div{
+	background-color: red;
 }
-.sample{
-	vertical-align: middle;
+a{
+	background-color: green;
 }
