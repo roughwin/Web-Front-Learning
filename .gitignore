@@ -1,5 +1,10 @@
+*
 !*.html
 !*.css
 !*.js
 !*.jpg
 !*.ico
+!*.cur
+!*Demo/
+!*HomeWrok/
+!*Practice/
