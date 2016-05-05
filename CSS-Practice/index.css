@@ -1,0 +1,38 @@
+.parent{
+	font:12px "宋体";
+	color: #000;
+
+}
+.button{
+	display: block;
+	border:1px solid #ddd;
+	width: 50px;
+	height: 28px;
+	line-height: 28px;
+	background-color: #eee;
+	text-align: center;
+}
+ul{
+	display: inline-block;
+	margin-top: 1px;
+	list-style:none;
+	padding: 0;
+	border:1px solid #ddd;
+	border-top-width: 0;
+}
+a.menu{
+	display: inline-block;
+	border-style: solid;
+	border-color: #ddd;
+	border-width: 0;
+	border-top-width: 1px;
+	height: 30px;
+	padding: 0 10px;
+	line-height: 30px;
+	background-color: #fff;
+	color: inherit;
+	text-decoration: none;	
+}
+.menu:hover{
+	background-color: #ddd;
+}

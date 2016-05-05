@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Homework 3</title>
+</head>
+<body>
+	<form action="" method="post" class="m-form">
+		<div>
+			<label for="avatar">头像</label>
+			<input type="file" id="avatar"></input>
+		</div>
+		<div>
+			<label for="nickname">昵称</label>
+			<input type="text" id="nickname"></input>
+		</div>
+		<div>
+			<label for="education">学历</label>
+			<select id="education">
+				<option value="1">大专</option>
+				<option value="2">本科</option>
+			</select>
+		</div>
+		<div>
+			<label>性别</label>
+			<input type="radio" name="sex" id="male" value="male" checked></input>
+			<label for="male">男</label>
+			<input type="radio" name="sex" id="female" value="female"></input>
+			<label for="female">女</label>
+		</div>
+		<div>
+			<label>爱好</label>
+			<input type="checkbox" id="movie" name="hobby[]" value="movie" checked></input>
+			<label for="movie">电影</label>
+			<input type="checkbox" id="shoot" name="hobby[]" value="shoot"></input>
+			<label for="shoot">摄影</label>
+		</div>
+		<div>
+			<label for="description">签名</label>
+			<textarea name="description" id="description"></textarea>
+		</div>
+		<button id="submit" type="submit">保存</button>
+	</form>
+</body>
+</html>
