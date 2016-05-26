@@ -1,19 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="practice.css">
-
-	</style>
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>3.html</title>
+    <style type="text/css">
+     .slide{
+        position: relative;
+        height: 100px;
+        width: 200px;
+        background-color:#bdd7ee; 
+     }  
+     .pointer{
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        bottom: 10px; 
+       
+     }
+     i{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-left: 5px;
+        vertical-align: bottom;
+        background-color: black;
+        border-radius: 5px;
+     } 
+    
+    .current{
+        background-color: white;
+    }
+     i:hover{
+        background-color: white;
+     }
+    </style>
 </head>
 <body>
-	<div class="slide">
-	<!-- 图片省略 -->
-	<!-- 以下是指示器 -->
-	<div class="pointer"><i class="current"></i><i></i><i></i></div>
-</div>
-</div>
-
+ <div class="slide">
+    <!-- 图片省略 -->
+    <!-- 以下是指示器 -->
+    <div class="pointer"><i class="current"></i><i></i><i></i></div>
+</div>   
 </body>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 2-2</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//参考 MDN  https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+	//将下行的 'function' 改为 'test' 即可在chrome等支持 Object.create 的浏览器中测试.
+	if (typeof Object.create != 'function'){
+	// if (typeof Object.create != 'test'){
+		Object.create = (function () {  
+			function Temp(){}
+			return function (obj) {
+				if (arguments.length > 1) {
+					throw TypeError('Only one argument accepted.');
+				}
+				if(typeof obj != 'object'){
+					throw TypeError('Object prototype should be an Object.');
+				}
+				Temp.prototype=obj;
+				var result = new Temp();
+				Temp.prototype = null;
+
+				return result;
+			}
+		})();
+	}
+	//test1:
+	var a =  Object.create({x:1,y:2});
+	alert(a.x);
+
+	//test 2:
+	var landRover={
+		name: "landRover",
+		start: function () {
+			console.log("log: start");
+		},
+		stop: function () {
+			console.log("log: stop");
+		}
+	}
+	var landWind = Object.create(landRover);
+	landWind.logo = "landWind";
+	console.log(landWind);
+
+	</script>
+</body>
+</html>

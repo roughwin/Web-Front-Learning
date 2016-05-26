@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 2-4</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function fibonacci(n) {
+		var f=[0,1];
+		for (var i = 1; i<n; i++){
+			var s = f[0]+f[1];
+			f[0]=f[1];
+			f[1]=s;
+
+		}
+		return n?f[1]:f[0];
+
+	}
+	var num = fibonacci(3);
+	for (var i = 0; i < 10; i++) {
+		console.log("Fibonacci("+i+") = "+fibonacci(i));
+	}
+	</script>
+</body>
+</html>

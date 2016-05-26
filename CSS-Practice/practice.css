@@ -1,4 +1,9 @@
 .slide{
+background-color: #bed8ef;position: relative;width: 200px;height: 100px;
+}
+
+
+/*.slide{
 	position: relative;
 	background-color: #bdd7ee;
 	width: 200px;
@@ -21,4 +26,4 @@ i{
 }
 i.current{
 	background-color: white;
-}
+}*/

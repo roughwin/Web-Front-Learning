@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 2-1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function type(obj) {
+			return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
+		}
+		var t = type(1) // t==="number"
+		// var t = type(new Number(1)) // t==="number"
+		// var t = type("abc") // t==="string"
+		// var t = type(new String("abc")) // t==="string"
+		// var t = type(true) // t==="boolean"
+		// var t = type(undefined) // t==="undefined"
+		// var t = type(null) // t==="null"
+		// var t = type({}) // t==="object"
+		// var t = type([]) // t==="array"
+		// var t = type(new Date) // t==="date"
+		// var t = type(/\d/) // t==="regexp"
+		// var t = type(function(){}) // t==="function"
+	</script>
+
+	123
+</body>
+</html>

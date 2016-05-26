@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>formatDate</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function formatDate(date, pattern) {
+			function padding(number){
+		    	return number < 10 ? '0' + number : '' + number;
+		    }
+			return pattern.replace("yyyy",""+date.getFullYear()).replace("MM",""+padding(date.getMonth()+1)).replace("dd",""+padding(date.getDate())).replace("HH",""+padding(date.getHours())).replace("mm",""+padding(date.getMinutes())).replace("ss",""+padding(date.getSeconds()));
+			
+		}
+
+		//test 
+		console.log(formatDate(new Date(),"yyyy年MM月dd日 HH:mm:ss"));
+
+
+		var date = new Date(2001,8,11,8,26,8);
+		console.log(date);
+		console.log(formatDate(date, "yyyy"));
+		console.log(formatDate(date, "yyyy-MM-dd"));
+		console.log(formatDate(date, "yyyy-MM-dd HH"));
+		console.log(formatDate(date, "yyyy-MM-dd HH:mm:ss"));
+
+	</script>
+</body>
+</html>

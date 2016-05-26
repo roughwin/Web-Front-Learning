@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>myType</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function myType(obj) {
+			return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
+		}
+
+
+		//test
+		console.log(myType(1));
+		console.log(myType(false));
+		console.log(myType({}));
+		console.log(myType([]));
+		console.log(myType(function(){}));
+		console.log(myType(new Date()));
+
+	</script>
+</body>
+</html>
