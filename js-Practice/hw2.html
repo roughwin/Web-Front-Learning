@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function parseQuery(query){
+			var arr = query.split("&");
+			var result={};
+			for (i in arr) {
+				if(arr[i]) {
+					var e=arr[i].replace(/\s/g,"").split("=");
+					result[e[0]]=e[1]?e[1]:"";
+				}
+			}
+			return result;
+		}
+		
+		
+		var obj = parseQuery("name = tom &age=12&gender&");
+		document.write(obj);
+		console.log(obj);
+	</script>
+</body>
+</html>

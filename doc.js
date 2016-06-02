@@ -1,5 +1,5 @@
 var pagelist=document.getElementById("page-list");
-var dirname="./CSS-Demo/"
+var dirname="./CSS-Demo/font/"
 var filelist=new Array(
 		"01_font-size.html",
 		"02_font-family.html",

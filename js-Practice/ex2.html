@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>search</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function search(arr, dst) {
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i]==dst){
+					return i;
+				}
+			}
+			throw TypeError('Nothing find.');
+		}
+
+		//test
+		var arr = [1, 2, 4, 6, 7, 9, 19,20, 30, 40, 45, 47];
+		var index = search(arr,45);
+		console.log("Index is: "+index);
+	</script>
+</body>
+</html>

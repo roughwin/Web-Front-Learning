@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 5</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	function escapeHTML(htmlStr) {
+			var result = htmlStr.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+			return result;
+		}	
+	var html = '<input type="text" name="mobile">';
+	console.log(escapeHTML(html));
+	document.write(escapeHTML(html));
+	</script>
+</body>
+</html>

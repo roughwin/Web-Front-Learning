@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 2-3</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//改变if判别条件 即可在chrome等支持bind的浏览器中测试
+		if (!Function.prototype.bind) {
+		//if(true){ /*test*/
+		  	Function.prototype.bind = function (context) { 
+		    	var args = arguments,
+		        obj = arguments[0],
+		        func = this;
+		    	return function(){
+			        var argc = Array.prototype.slice.call(args,1);
+			        Array.prototype.push.apply(argc,arguments);
+			        return func.apply(obj||null,argc);
+				}   
+			}
+		}
+
+		//test
+		function move(x,y) {
+			this.x += x;
+			this.y += y;
+		}
+		var point =  {x:1, y:2};
+		var pointmove = move.bind(point,2,2);
+		console.log(point);  //point 初识值为 {x:1, y:2};
+		pointmove();  //执行后 point 变为 {x:3, y:4}
+		console.log(point);
+	</script>
+</body>
+</html>

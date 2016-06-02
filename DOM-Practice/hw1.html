@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+</head>
+<body>
+	<div id="example">
+	  <p id="p1" class="aaa bbb"/>
+	  <p id="p2" class="aaa ccc"/>
+	  <p id="p3" class="bbb ccc"/>
+	</div>
+	
+
+
+	<script type="text/javascript">
+		
+function getElementsByClassName(element, names) {
+    if (element.getElementsByClassName) {
+        return element.getElementsByClassName(names);
+    } else {
+        var elements = (element).getElementsByTagName('*');
+        var result = [];
+        var element,
+            classNameArr,
+            flag,
+            flagw;
+
+        names = names.split(' ');		    
+        for (var i = 0; i < elements.length; i++) {
+        	flag = 1;  
+        	flagw = 0; //若names全部为 "" 则falgw为0 否则为1
+        	element = elements[i]
+            classNameArr = element.className.split(' ');
+            for (var j = 0; j < names.length; j++) {
+            	if(names[j]==""){
+            		continue;
+            	}
+            	flagw = 1;
+            	if(classNameArr.indexOf(names[j])<0){	   
+            		flag = flag*0;		            		
+            	}
+            }
+            if (flag&flagw) {
+            	result.push(element);
+            } 
+        }
+        return result;
+    }
+}
+
+//test..
+var element = document.getElementById("example");
+/*
+getElementsByClassName(element,"aaa");
+getElementsByClassName(element,"bbb  ccc");
+getElementsByClassName(element," ccc bbb");
+getElementsByClassName(element,"aaa bbb ccc ");
+getElementsByClassName(element,"aaa bbb");
+getElementsByClassName(element,"");
+getElementsByClassName(element,"xxx");
+*/
+
+
+
+
+
+
+		
+	</script>
+</body>
+</html>

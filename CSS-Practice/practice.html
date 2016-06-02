@@ -1,21 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="practice.css">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>3.html</title>
+    <style type="text/css">
+     .slide{
+        position: relative;
+        height: 100px;
+        width: 200px;
+        background-color:#bdd7ee; 
+     }  
+     .pointer{
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        bottom: 10px; 
+       
+     }
+     i{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-left: 5px;
+        vertical-align: bottom;
+        background-color: black;
+        border-radius: 5px;
+     } 
+    
+    .current{
+        background-color: white;
+    }
+     i:hover{
+        background-color: white;
+     }
+    </style>
 </head>
 <body>
-	<span>before inline-block</span>
-	<span class="sample">diaplay: inline-block</span>
-	<span>after inline-block</span>
-
-<div class="mainnav f-cb j-navFind">
-	<a class="nitem f-f0" href="/" hidefocus="true">首页...........................................................</a>
-	<div class="f-cb nitem f-f0 x-hoverItem"> <span>课程体系</span> </div> 
-	<a data-index="微专业" class="nitem f-f0" href="/smartSpec/intro.htm" hidefocus="true">微专业</a> 
-	<div class="nitem f-f0 x-hoverItem" hidefocus="true"> <span class="j-dropmenubtn" data-href="/client/download.htm" id="auto-id-1460877091449">下载APP</span> </div> 
-	<a class="nitem f-f0" data-index="学习中心" href="/cloud/myCloudClass.htm" hidefocus="true">学习中心</a> 
-</div>
+ <div class="slide">
+    <!-- 图片省略 -->
+    <!-- 以下是指示器 -->
+    <div class="pointer"><i class="current"></i><i></i><i></i></div>
+</div>   
 </body>
 </html>
