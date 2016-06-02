@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>锚点</title>
+</head>
+<body>
+	<input type="text" id="mobile" onblur="check(this)" onfocus="reset(this)">
+	<script>
+		function check(mobileInput){
+			var value = mobileInput.value;
+			if(!/^13566668888$/.test(value)){
+				mobileInput.style.borderColor = 'red';
+			}
+		}
+
+		function reset(mobileInput){
+			mobileInput.style.borderColor = '';
+		}
+	</script>
+</body>
+</html>

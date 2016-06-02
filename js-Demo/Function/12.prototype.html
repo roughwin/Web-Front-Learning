@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prototype</title>
+</head>
+<body>
+	<script>
+		function Point(x, y){
+			this.x = x;
+			this.y = y;
+		}
+		
+		Point.prototype.move = function(stepX, stepY){
+			this.x += stepX;
+			this.y += stepY;
+		};
+
+		var point = new Point(1, 1);
+		console.log(point);
+		point.move();
+		console.log(point);
+	</script>
+</body>
+</html>

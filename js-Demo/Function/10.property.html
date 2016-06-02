@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>property</title>
+</head>
+<body>
+	<script>
+		var point = {
+			x: 1,
+			y: 1,
+			move: function(stepX, stepY){
+				point.x += stepX;
+				point.y += stepY;
+				// this.x += stepX;
+				// this.y += stepY;
+			}
+		};
+
+		point.move(2, 1);
+		console.log(point);
+	</script>
+</body>
+</html>

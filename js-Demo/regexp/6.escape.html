@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>转义字符</title>
+</head>
+<body>
+	<label>网址：</label><input type="text" onblur="checkURL(this)" onfocus="reset(this)" placeholder="以http://起始">
+	<br><br>
+	<label>邮箱：</label><input type="text" onblur="check163(this)" onfocus="reset(this)" placeholder="以@163.com结尾">
+	<script>
+		function checkURL(mobileInput){
+			var value = mobileInput.value;
+			if(!/^http:\/\/.+/.test(value)){
+				mobileInput.style.borderColor = 'red';
+			}
+		}
+
+		function check163(mobileInput){
+			var value = mobileInput.value;
+			if(!/.+@163\.com$/.test(value)){
+				mobileInput.style.borderColor = 'red';
+			}
+		}
+
+		function reset(mobileInput){
+			mobileInput.style.borderColor = '';
+		}
+	</script>
+</body>
+</html>

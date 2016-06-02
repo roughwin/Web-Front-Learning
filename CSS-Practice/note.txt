@@ -1,0 +1,167 @@
+width: <length>|<percentage>|auto|inherit
+	default --->auto
+height: <length>|<percentage>|auto|inherit
+	default --->auto
+min-height min-width ...
+padding
+margin margin合并(毗邻元素 父元素与第一个和最后一个子元素 外边距合并)
+	margin: 0 auto --->水平居中
+
+border : [<border-width>||<border-sytle>||<border-color>]
+	border-width: [<length>|thin|medium|thick]
+	border-sytle: [solid|dashed|dotted|...]
+	border-color: [<color>|transparent]
+
+	border-radius: [<lenght>|<percentage>]{1,4}[/[<length>|<percentage>]{1,4}]
+overflow: visible|hidden|scroll|auto
+	visible -->default 超出后继续显示
+	hidden  超出内容隐藏
+	scroll  一直显示滚动条
+	auto    内容超出时显示滚动条
+overflow-x overflow-y   分别设置 水平 垂直方向超出时的 显示方式
+
+content-box 
+border-box
+
+box-sizing: content-box|border-box| inherit
+	content-box  --->default;
+	设置width和height指定的区域
+box-shadow: none|<shadow>[,<shadow>]*
+	<shadow>: inset? && <length>{2,4} && <color>?
+		inset --> 内阴影
+		阴影是不占空间的
+描边: 
+outline: [<outline-width>||<outline-sytle>||<outline-color>]
+	outline-width: <length>|thin|medium...
+	outline-sytle: solid|dashed|dotted...
+	outline-color: <color>|invert
+	outline 不占据空间
+
+
+BACKGROUND:
+
+background-color: <color>
+background-image: <bg-image> [,<bg-image>]*
+	<bg-image> : <image>|none
+	ex: background-image: url(red.png),url(blue.png);
+		bakcground-color: green;
+background-repeat: <repeat-style> [,<repeat-style>]*
+	<repeat-style>: repeat-x|repeat-y|[repeat|space|round|no-repeat]{1,2}
+	ex: background-repeat:repeat-x;
+		background-repeat:repeat-y;
+		background-repeat:space;
+		background-repeat:round;
+		background-repeat:no-repeat repeat;  --->分别表示 x y轴
+		background-repeat:no-repeat repeat, repeat-x;  ----> 分别表示两张图片
+background-attachment: <attachment> [, <attachment>]*
+	<attachment>: scroll|fixed|local
+	local  --->内容与背景一起
+	scroll --->内容与背景分离
+background-position: <position> [,<position>]*
+	<position> : [left|center|right|top|bottom|<percentage>|<length>]|....
+	ex: background-position: 20% 50%;
+		background-position: center center;
+		background-position: right;  ---> x axis
+		background-position: right 10px top 20px; ---->right top仅为参照物
+
+linear-gradient() 渐变
+radial-gradient()
+repeat-*-gradient()
+
+background-origin
+background-clip
+background-size
+short hand
+
+
+display
+	diaplay:none         --->不占据位置
+	visibility:hidden	 --->仍然占据位置	
+.content{
+	margin: 0 auto;   ---->实现水平居中
+}
+
+居中导航:
+	<ul>
+		<li><a href="">jfdif</a></li>
+		...
+		...
+	</ul>
+	ul{
+		text-align: center;
+		height: 30px;
+		line-height: 30px;
+	}
+	li,a{
+		diaplay: inline-block:
+		width:80px;
+		height:100%;
+	}
+	li{
+		margin: 0 5px;
+		list-sytle: none;
+	}
+
+
+
+transform: none|<transform-function>+
+	ex: <body style="transform: rotate(180deg)">
+		transform: rotate(-60deg);
+		transform: translate(<translation-value>  [<translation-value>]?)
+			translateX, translateY
+		transform: scale(<number> [,<number>]?)
+			scaleY, scaleX
+		transform: skew(<angle> [,<angle>]?)
+			skewX, skewY
+transform-origin: [left|center|right|top|bottom|<percentage>|<length>]|[left|center|right|<percentage>|<length>]
+	ex: transform-origin: 50% 50%;
+		transform-origin: 0 0;
+		transform-origin: 20%;
+		transform-origin: right 50px 20px; -->3D 
+
+perspective: none|<length>
+	ex: perspective: 500px;
+perspective-origin: [left|center|right|top|bottom|<percentage>|<length>]|[left|center|right|<percentage>|<length>]...
+	ex: perspective-origin: 50% 50%;
+		perspective-origin: 0 0;
+		perspective-origin: 20%;
+		perspective-origin: right 50px 20px; -->3D 
+
+translate3d(<translate-value>,<translate-value>,<length>)
+	translateX(<translate-value>) translateY(<translate-value>) translateZ(<length>)
+scale3d(<number>,<number>,<number>)
+	scaleX scaleY scaleZ
+rotate3d(<number>,<number>,<number>,<angle>)
+	ex: transform: rotate3d(0,1,0,45deg)
+		trandform: rotate3d(1,0,0,45deg)
+		trandform: rotate3d(1,1,1,45deg)
+transform-style: flat|preserve-3d
+
+backface-visibility
+
+transition-property: none|<single-transition-property>[',' <single-transition-property>]*
+	ex: transition-property: none;
+		transition-property: all;
+		transition-property: left:
+		transition-property: color;
+transition-duration: <time> [,<time>]*
+	ex: transition-duration 1s;
+transition-timing-function: <single-transition-timing-function> [',' <single-transition-timing-function>]*
+	<single-transition-timing-function> = 
+		ease|linear|ease-in|ease-out|ease-in-out|cubic-bezier(<number>,<number>,<number>,<number>)|
+		step-start|step-end|
+		steps(<integer>[,[start|end]]?)
+	ex: transition-timing-function: ease;
+		transition-timing-function: cubic-bezier(0.25,0.1,0.25,1)
+		...
+transition-delay: <time>[,<time>]*
+	ex: transition: 1s;
+transition: <single-transition>[,<single-transition>]*
+	<single-transition> = [none|<single-transition-property>]||<time>||<single-transition-timing-function>||<time>
+	ex: transition:none;
+		transition: left 2s ease 1s ,color 2s;
+		transition: 2s;
+
+
+
+

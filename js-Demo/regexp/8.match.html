@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>match</title>
+</head>
+<body>
+	<script>
+		var url = 'http://blog.163.com/album?id=1#comment';
+		var arr = url.match(/(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?/);
+		// var arr = url.match(/(https?:)\/\/([^\/]+)([^\?]*)([^#]*)(.*)/);
+		console.log(arr);
+	</script>
+</body>
+</html>

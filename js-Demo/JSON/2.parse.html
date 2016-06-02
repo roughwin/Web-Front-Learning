@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>parse</title>
+</head>
+<body>
+	<script>
+		var userJson = '{\
+            "id": 1,\
+            "nick": "春鸟秋虫",\
+            "avatar": "1.jpg",\
+            "tags": null,\
+            "authed": false\
+        }';
+		var user = JSON.parse(userJson);
+		// var user = JSON.parse(userJson, function(k, v){
+		// 	if(k === 'avatar'){
+		// 		return 'http://music.163.com/img/' + v;
+		// 	}
+		// 	return v;
+		// });
+        debugger;
+	</script>
+</body>
+</html>

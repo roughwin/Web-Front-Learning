@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取某月的天数</title>
+</head>
+<body>
+	<script>
+		function getDays(year, month){
+			var date = new Date(year, month, 0);
+			return date.getDate();
+		}
+
+		alert('2001年2月有' + getDays(2001, 2) + '天。');
+		alert('2001年3月有' + getDays(2001, 3) + '天。');
+	</script>
+</body>
+</html>

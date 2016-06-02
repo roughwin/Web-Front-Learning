@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>stringify</title>
+</head>
+<body>
+	<script>
+		var user = {
+            id: 1,
+            nick: "春鸟秋虫",
+            avatar: "1.jpg",
+            tags: null,
+            authed: false
+        };
+		var userJson = JSON.stringify(user);
+		// var userJSON = JSON.stringify(user, function(k, v){
+		// 	if(k === 'tags'){
+		// 		return '小清新 女神';
+		// 	}
+		// 	return v;
+		// });
+		// var userJson = JSON.stringify(user, ['id', 'nick', 'avatar']);
+        debugger;
+	</script>
+</body>
+</html>

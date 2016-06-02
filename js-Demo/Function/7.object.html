@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>对象参数</title>
+</head>
+<body>
+	<script>
+		function increment(person){
+			person.age = person.age + 1;
+			return person;
+		}
+
+		var jerry = {
+			name: 'jerry',
+			age: 1
+		};
+		var x = increment(jerry);
+		jerry; // {name: 'jerry', age: 11}
+	</script>
+</body>
+</html>

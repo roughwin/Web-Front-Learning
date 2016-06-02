@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scope</title>
+</head>
+<body>
+	<script>
+		var zhoujielun = {
+		    name: "周杰伦",
+		    gender: 1
+		};
+
+		function class1() {
+		    // var zhoujielun = {
+		    //     name: "周杰伦",
+		    //     gender: 0
+		    // };
+		    zhoujielun.name = "周杰";
+		    zhoujielun.gender = 1;
+		}
+		class1();
+
+		console.log(zhoujielun);
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>格式化</title>
+</head>
+<body>
+    <script>
+    function padding(number){
+    	return number < 10 ? '0' + number : '' + number;
+    }
+    function format(date) {
+        return date.getFullYear() + '-' + padding(date.getMonth() + 1) + '-' + padding(date.getDate()) + ' ' 
+        	+ padding(date.getHours()) + ':' + padding(date.getMinutes()) + ':' + padding(date.getSeconds());
+    }
+    var date = new Date();
+    alert(date);
+    alert(format(date));
+    </script>
+</body>
+</html>

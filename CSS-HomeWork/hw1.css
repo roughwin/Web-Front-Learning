@@ -1,0 +1,19 @@
+.parent{
+	width: 810px;
+	height: 200px;
+	margin: 0 auto;
+	font:26px/6 "Microsoft YaHei";	
+	color: white;	
+	text-align: center;
+}
+.side{
+	background-color: #c00000;
+	width: 200px;	
+	float: left;
+}
+.main{
+	background-color: #4f81bd;
+	width: 600px;	
+	float: right;
+}
+.parent:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}

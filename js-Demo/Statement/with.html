@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>with语句</title>
+</head>
+<body>
+<script>
+  var kitty = {
+    age:3,
+    friend:{
+      name:'snoopy',
+      age:2
+    }
+  }
+
+  with(kitty.friend){
+    document.write(name + '\'s age is' + age);
+  }
+
+</script>
+</body>
+</html>

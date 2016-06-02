@@ -1,0 +1,24 @@
+.slide{
+	position: relative;
+	background-color: #bdd7ee;
+	width: 200px;
+	height: 100px;
+
+}
+.pointer{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+i{
+	float: left;
+	margin-left: 5px;
+	display: block;
+	width: 10px;
+	height: 10px;
+	background-color: black;
+	border-radius: 50%;
+}
+i.current{
+	background-color: white;
+}

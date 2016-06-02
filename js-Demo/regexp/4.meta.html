@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元字符</title>
+</head>
+<body>
+	<input type="text" id="mobile" onblur="check(this)" onfocus="reset(this)">
+	<script>
+		function check(mobileInput){
+			var value = mobileInput.value;
+			if(!/^1\d\d\d\d\d\d\d\d\d\d$/.test(value)){
+				mobileInput.style.borderColor = 'red';
+			}
+		}
+
+		function reset(mobileInput){
+			mobileInput.style.borderColor = '';
+		}
+	</script>
+</body>
+</html>

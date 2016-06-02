@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多选分支</title>
+</head>
+<body>
+	<label>邮箱：</label><input type="text" onblur="checkNetEase(this)" onfocus="reset(this)" placeholder="网易邮箱">
+	<script>
+		function checkNetEase(mobileInput){
+			var value = mobileInput.value;
+			if(!/(.+)@(163|126|188)\.com$/.test(value)){
+				mobileInput.style.borderColor = 'red';
+			}
+		}
+
+		function reset(mobileInput){
+			mobileInput.style.borderColor = '';
+		}
+	</script>
+</body>
+</html>

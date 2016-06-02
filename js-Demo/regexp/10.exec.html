@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>exec</title>
+</head>
+<body>
+	<script>
+		var reg = /(.)(\d+)/g;
+		var scores = 'Tom $88, Nicholas ￥100, jack £38.';
+		var result;
+		while(result = reg.exec(scores)){
+			console.log(result);
+			console.log(reg.lastIndex);
+			// reg.lastIndex += 10;
+		}
+	</script>
+</body>
+</html>

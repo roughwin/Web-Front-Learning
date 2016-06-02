@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>男女比率</title>
+</head>
+
+<body>
+    <script>
+    var students1 = [{
+        name: '魏文庆',
+        gender: 1
+    }, {
+        name: '蔡剑飞',
+        gender: 1
+    }, {
+        name: '张贤',
+        gender: 0
+    }];
+    var students2 = [{
+        name: '陆忠芳',
+        gender: 0
+    }, {
+        name: '严跃杰',
+        gender: 1
+    }, {
+        name: '胡雪亮',
+        gender: 1
+    }, {
+        name: '顾平',
+        gender: 1
+    }];
+
+    // 求1班的男女比率
+
+    var maleCount1 = 0,
+        femaleCount1 = 0,
+        length1 = students1.length,
+        student1,
+        ratio1;
+    for (var i = 0; i < length1; i++) {
+        student1 = students1[i];
+        if (student1.gender === 1) {
+            maleCount1++;
+        } else {
+            femaleCount1++;
+        }
+    }
+    ratio1 = maleCount1 / femaleCount1;
+    alert('1班的男女比率为：' + ratio1);
+    // 求2班的男女比率
+    var maleCount2 = 0,
+        femaleCount2 = 0,
+        length2 = students2.length,
+        student2,
+        ratio2;
+    for (var i = 0; i < length2; i++) {
+        student2 = students2[i];
+        if (student2.gender === 1) {
+            maleCount2++;
+        } else {
+            femaleCount2++;
+        }
+    }
+    ratio2 = maleCount2 / femaleCount2;
+    alert('2班的男女比率为：' + ratio2);
+    </script>
+</body>
+
+</html>

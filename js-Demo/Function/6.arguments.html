@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>add2</title>
+</head>
+<body>
+	<script>
+		function add() {
+		    var length = arguments.length,
+		        sum = 0,
+		        parameter;
+		    for (var i = 0; i < length; i++) {
+		        parameter = arguments[i];
+		        sum = sum + parameter;
+		    }
+		    return sum;
+		}
+
+		alert(add(2, 3)); // 5
+		alert(add(2, 3, 4)); // 9
+		alert(add(2, 3, 4, 5)); // 14
+
+	</script>
+</body>
+</html>

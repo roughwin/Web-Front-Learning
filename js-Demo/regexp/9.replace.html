@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>替换</title>
+</head>
+<body>
+	<div id="container"></div>
+	<script>
+		var container = document.getElementById('container');
+		
+		var html = '<label>网址:</label><input placeholder="以http://起始">';
+		html = html.replace(/[<>]/g, function(m0){
+			switch(m0){
+				case '<':
+					return '&lt;';
+				case '>':
+					return '&gt;';
+			}
+		});
+		console.log(html);
+		container.innerHTML = html;
+	</script>
+</body>
+</html>
