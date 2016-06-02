@@ -5,6 +5,4 @@
 !*.jpg
 !*.ico
 !*.cur
-!*Demo/
-!*HomeWrok/
-!*Practice/
+!*.png
