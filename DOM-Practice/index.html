@@ -1,31 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<style type="text/css">
-		#rect{
-			width: 200px;
-			height: 200px;
-			background-color: red;
-			
-		}
-	</style>
-	<title>DOM</title>
-</head>
-<body>
-
-	<div id="rect"></div>
-	<script type="text/javascript">
-		function fadeout(element) {
-			element.style['opacity']=1.0;
-			var step = function() {
-				var tmpalpha=element.style['opacity'];
-				element.style['opacity']=tmpalpha-0.01;
-			}
-			var intervalID = setInterval(step,10);
-		}
-		var ele=document.getElementById("rect");
-		fadeout(ele);
-	</script>
-</body>
-</html>
+    <meta charset="UTF-8">
+    <title>TWO</title>
+    <script>
+        function addEvent(obj,type,fn){            if(obj.addEventListener){                return obj.addEventListener(type,fn);
+            }else if(obj.attachEvent){                return obj.attachEvent('on'+type,fn);
+            }
+        }
+        addEvent(window,'load',function(){            var oYear=document.getElementById('year');            var oMonth=document.getElementById('month');            var oDate=document.getElementById('date');            function getDays(year,month){                return new Date(year,month,0).getDate();
+            }            function addDays(obj,index){                
+                if(obj.options[index].selected){
+                    oDate.options.length=1;                    if(index==0){                        if(obj.id=='year'){
+                            oMonth.options[0].selected=true;
+                        }                        return;                
+                    }                    var year=oYear.options[oYear.selectedIndex].value;                    if(year==0)return;                    var month=oMonth.options[oMonth.selectedIndex].value;                    if(month==0)return;                    var date=getDays(year,month);                    for(var j=1;j<=date;j++){                        var opt = document.createElement('option');  
+                         opt.appendChild(document.createTextNode(''+j));  
+                         opt.setAttribute('value',''+j);  
+                         oDate.appendChild(opt);  
+                    }
+                }                    
+            }
+            addEvent(oYear,'change',function(){                for(var i=0;i<=3;i++){
+                    addDays(this,i);
+                }
+            });
+            addEvent(oMonth,'change',function(){                for(var i=0;i<=12;i++){
+                    addDays(this,i);
+                }
+            });
+  
+        });   
+         </script>
+         </head>
+         <body>
+         <!--     现需求如下：
+        “年”或“月”发生变化且为有效值时，“日”下拉选择框显示相应的项。
+        “年”下拉选择框为初始状态（即值为0）时， “月”、“日”下拉选择框一定为初始状态（即值为0）。
+        “月”下拉选择框为初始状态（即值为0）时， “日”下拉选择框一定为初始状态（即值为0）。
+    请写出以上需求的实现代码，要求浏览器兼容。 -->
+    <select name="year" id="year">
+        <option value="0">--</option>
+        <option value="1999">1999</option>
+        <option value="2000">2000</option>
+        <option value="2001">2001</option>
+    </select>年    
+    <select name="month" id="month">
+        <option value="0">--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>月   
+     <select name="date" id="date">
+        <option value="0">--</option>
+    </select>日</body>
+    </html>
