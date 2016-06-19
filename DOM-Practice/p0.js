@@ -50,10 +50,13 @@ function removeCookie(name, path, domain) {
 function Notice(opt) {
 
 	var options = opt||{};
-	var notice = this;	
+	var notice = this;
+
 	extend(this, options);	
+	this.newNotice = this.getContent();
+	this.md5 = b64_md5(this.newNotice.innerHTML);
 	this.parent = this.contentNode.parentNode;
-	this.parent.replaceChild(this.getContent(), this.contentNode);
+	this.parent.replaceChild(this.newNotice, this.contentNode);
 	this.eventNode.addEventListener("click", function(event) {
 		notice.hide();
 	});
@@ -61,15 +64,14 @@ function Notice(opt) {
 }
 extend(Notice.prototype, {	
 	checkCookie: function() {
-		if(getcookie()['notice']){
+		if(getcookie()['notice']==this.md5){
 			return;
 		}
 		this.parent.style.display='block';		
 	},
 	hide: function() {
-		this.parent.style.display='none';
-		//document.cookie = 'notice = 110';
-		setCookie('notice','110');
+		this.parent.style.display='none';		
+		setCookie('notice',this.md5);
 	},
 	show: function() {
 		removeCookie('notice');
