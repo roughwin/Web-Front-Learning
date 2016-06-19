@@ -1,0 +1,132 @@
+address,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+table{border-collapse:collapse;border-spacing:0}
+caption,th{text-align:left;font-weight:400}
+abbr,body,fieldset,html,iframe,img{border:0}
+address,cite,dfn,em,i,var{font-style:normal}
+[hidefocus],summary{outline:0}
+li{list-style:none}
+h1,h2,h3,h4,h5,h6,small{font-size:100%}
+sub,sup{font-size:83%}
+code,kbd,pre,samp{font-family:inherit}
+q:after,q:before{content:none}
+textarea{overflow:auto;resize:none}
+label,summary{cursor:default}
+a,button{cursor:pointer}
+b,em,h1,h2,h3,h4,h5,h6,strong{font-weight:700}
+a,a:hover,del,ins,s,u{text-decoration:none}
+body,button,input,keygen,legend,select,textarea{outline:0;font:12px/1.14 arial,\5b8b\4f53;color:#333}
+body{background:#fff;margin:0}
+.f-cb:after{content:'.';display:block;clear:both;height:0;overflow:hidden;visibility:hidden}
+.g-mn{width:100%;height:2000px}
+.m-notice{background:#f3f3f3;}
+.m-notice .align{width:1206px;height:36px;margin:0 auto;line-height:36px;font-size:13px}
+.m-notice .content{float:left}
+.m-notice .ctrl{float:right}
+.m-notice .content{float:left;width:1000px}
+.m-notice .content a{color:green}
+.m-notice .content a:hover{text-decoration:underline}
+.m-notice .ctrl{float:right}
+.m-notice .ctrl span:before{display:inline-block;content:"";background-image:url(../img/icon.png);height:18px;width:18px;background-position:0 7px}
+.m-notice .ctrl span{font-size:15px}
+.m-notice .ctrl span:hover:before{background-position:0 -12px}
+.m-notice .ctrl span:hover{color:green;cursor:pointer}
+.m-topBarContent{height:90px;width:1206px;margin:0 auto;position:relative}
+.u-conLeft{height:90px;float:left;width:700px;margin-top:0;padding:0}
+.u-conLogo{width:240px;height:22px;background:url(../img/logo.png);background-position:0 -7px;position:absolute;top:34px;left:1px}
+.u-conLogo:hover{background-position:0 -49px}
+.u-conAtten{position:absolute;height:19px;left:290px;background:url(../img/icon.png) no-repeat;background-position:0 -110px;border-radius:4px;width:52px;top:35px;cursor:pointer}
+.u-conAtten:hover{background:url(../img/icon.png) no-repeat;background-position:0 -382px}
+.u-conAtten .userAtten{position:absolute;top:3px;left:22px}
+.u-conAttened{height:22px;left:290px;background:url(../img/icon.png) no-repeat;background-position:0 -220px;border-radius:4px;width:150px;top:35px;cursor:pointer;display:none;position:absolute}
+.u-conAttened:hover{background-position:0 -157px}
+.u-conAttened .userAttened{position:absolute;top:3px;left:27px}
+.u-conAttened .cancel{position:absolute;top:3px;left:85px}
+.u-conAttened .cancel:hover{color:green;text-decoration:underline}
+.u-conFans{line-height:89px;font-size:13px;position:absolute;left:360px}
+.u-conRight{float:left}
+.m-conNav{float:left;padding-top:5px}
+.m-conNav li{display:inline-block;font-size:16px;line-height:70px;padding-right:40px}
+.m-conNav li a{color:#555;font-weight:600}
+.m-conNav li a:hover{color:green}
+.m-conNav li:last-child{padding-right:60px}
+.m-conSearch{background:url(../img/icon.png);margin-top:42px;width:25px;height:22px;padding-left:10px;float:right;background-position:0 -46px}
+.m-conSearch:hover{cursor:pointer;background-position:0 -75px}
+.zoom{background:rgba(0,0,0,.7);z-index:11;width:100%;top:0;bottom:0;display:none;position:absolute;height:100%}
+.u-loginForm{position:fixed;left:50%;top:50%;margin-left:-195px;margin-top:-145px;width:390px;height:290px;border:1px #ccc solid;background:#fff;z-index:100;display:none}
+._topicForm{display:block;line-height:68px;padding-left:40px;font-family:"微软雅黑";font-weight:700;font-size:18px}
+._nameForm{border:1px #dfdfdf solid;background-color:#fafafa;width:293px;height:43px;margin-left:40px;padding-left:14px;box-shadow:2px 2px 2px 2px #f1f1f1 inset}
+._pswForm{border:1px #dfdfdf solid;background-color:#fafafa;width:293px;height:43px;margin-left:40px;margin-top:20px;padding-left:14px;box-shadow:2px 2px 2px 2px #f1f1f1 inset}
+._loginForm{display:block;position:absolute;width:309px;height:46px;background:url(../img/login.png) no-repeat;background-position:0 0;border:0;margin-left:40px;margin-top:20px;cursor:pointer;zoom:1.04}
+._loginForm:hover{background-position:0 -60px}
+._loginForm:active{background-position:0 -120px}
+.cancelBtn{position:absolute;right:10px;top:10px;width:20px;height:16px;background:url(../img/icon.png)}
+.cancelBtn:hover{background-position:0 -19px}
+.m-slide{position:relative;height:460px;overflow:hidden;width:100%}
+.m-slide li{position:absolute;left:50%;width:100%;min-width:1650px}
+.m-slide img{width:100%;min-height:460px;margin-left:-50%}
+.contBtn{position:absolute;bottom:20px;width:100%;height:10px;text-align:center;z-index:100px}
+.contBtn span{display:inline-block;width:10px;height:10px;margin-left:11px;border-radius:5px;background-color:#ccc;cursor:pointer}
+.hide{display:none}
+.active{display:block}
+.contBtnCol{display:inline-block;width:12px;height:12px;border-radius:6px;background-color:#000;cursor:pointer}
+.m-intro{position:relative;width:1206px;height:300px;margin:0 auto}
+.m-intro-f1{width:400px;display:inline-block}
+.m-intro-f2{width:400px;display:inline-block}
+.m-intro-f3{width:400px;display:inline-block}
+.m-intro-logo{display:inline-block;width:82px;height:82px;margin-top:67px;margin-left:5px;background:url(../img/logo.png);background-position:0 -90px}
+.m-intro-topic{position:relative;left:20px;top:-70px;display:inline-block;font-size:22px;font-family:"微软雅黑";font-weight:400}
+.m-intro-cont{position:relative;width:240px;height:90px;left:110px;top:-60px;font-size:14px;line-height:24px;font-family:"微软雅黑";color:#555}
+.m-intro-more{display:inline-block;position:relative;left:110px;top:-30px;width:240px;font-size:14px;line-height:24px;font-family:"微软雅黑";color:green;cursor:pointer}
+.m-intro-more a{color:green}
+.m-intro-more:hover{text-decoration:underline}
+.u-showPic{width:100%}
+.u-showPic img{float:left;padding-left:2px;padding-right:2px;width:20%;box-sizing:border-box}
+.mainProduct{background:#f8f8f8;position:relative}
+.mainProductCont{width:1206px;margin:0 auto}
+.m-leftList{position:relative;top:84px;width:960px}
+.u-Topbar li,.u-Topbar ul{display:inline-block;float:left}
+.u-Topbar a{display:inline-block;width:200px;height:50px;font-size:20px;line-height:50px;font-family:"微软雅黑";text-align:center;box-shadow:1px 1px 0 1px #eee;color:#000}
+.u-Topbar{height:69px;margin-left:-39px}
+.u-Topbar .u-active-f1{background:#39a030;color:#fff}
+.u-proIntro{width:225px;height:230px;background:#fff;float:right;margin-top:26px;border:1px solid #eee}
+.proIntroVideo div:nth-of-type(1){height:55px;line-height:55px;border-bottom:1px solid #ddd;font-size:16px;padding-left:20px}
+.proIntroVideo div:nth-child(2){height:44px;font-style:14px;padding-left:20px;line-height:44px;color:#666}
+.proIntroVideo-f1{width:180px;height:110px;background:url(../img/videoImg.jpg) no-repeat;margin-left:20px;cursor:pointer}
+.proIntroHot{height:780px;margin-top:40px;border:1px solid #ddd}
+.proIntroHot .hot-f1{padding-left:20px;border-bottom:1px solid #ddd;height:55px;line-height:55px;font-size:16px}
+.m-player{width:1000px;height:1000px;position:fixed;top:0;left:0;display:none}
+.u-bg{background:#000;filter:alpha(opacity=70);width:100%;height:100%;position:fixed;top:0;bottom:0;left:0;right:0;z-index:99;opacity:.7}
+.m-playerBox{width:1000px;height:650px;background:#fff;z-index:999;position:absolute;left:50%;margin-left:-320px}
+.playerVideo{margin-left:-475px;left:50%;margin-top:10px;position:absolute;width:950px}
+.m-playerBox h3{font-size:20px;width:300px;padding-top:10px;margin-left:30px}
+.playerBtn{display:inline-block;width:15px;height:18px;background:url(../img/icon.png) no-repeat;cursor:pointer;position:absolute;right:10px;top:10px;z-index:1000}
+.u-courList{width:960px;height:1240px;background:#FBF9F9;float:left}
+.courseShow{width:225px;height:228px;margin-top:20px;margin-right:20px;background:#00f;box-shadow:0 1px 0 1px #f1f1f1;cursor:pointer}
+#okdklkd{width:960px;margin:0 -35px}
+#okdklkd li{float:left;list-style-type:none;margin-left:10px;margin-top:18px;width:225px;height:228px;overflow:hidden;cursor:pointer}
+.okmy{width:223px;height:124px}
+#okdklkd li p:nth-of-type(1){padding-left:4px;font-size:12px;color:#000;margin:0}
+#okdklkd li p:nth-of-type(2){padding-left:4px;font-size:12px;padding-top:10px;color:#666;margin:0}
+#okdklkd li p:nth-of-type(3){color:#999;margin-top:15px;margin-left:4px;border:1px solid #999;border-radius:3px;width:40px;height:16px;background:url(../img/icon.png) no-repeat;background-position:3px -409px;padding-top:2px;padding-left:15px;font-size:12px}
+#okdklkd li p:nth-of-type(4){color:red;font-family:"微软雅黑";font-weight:700;padding-left:4px}
+#okdklkd li .okmyy{color:#00f}
+.courseNum{float:right;width:300px;height:30px;margin-top:40px}
+.courseNum li{display:inline-block;width:20px;height:20px;text-align:center;line-height:20px;margin-right:4px;cursor:pointer}
+.courseNum li:hover{background:#9dd8b1}
+.courseNum-pre{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -280px}
+.courseNum-next{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -353px}
+.topi{height:70px;width:226px;overflow:hidden}
+.topi img{display:inline-block;width:50px;height:50px;margin-top:20px;margin-left:20px}
+.f-thide{display:inline-block;width:120px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;margin-top:28px;margin-right:20px}
+.tophot{margin-top:10px;display:inline-block;background:url(../img/icon.png) no-repeat;background-position:3px -410px;width:120px;height:20px;padding-left:20px}
+.footerBox{width:1206px;height:262px;margin:10px auto}
+.g-ft{background:#2c3339;height:262px;width:100%;position:relative;color:#ccc}
+.footerBox-fl{float:left}
+.ft-logo{height:26px;background:url(../img/logo.png) no-repeat;background-position:0 -45px;margin-top:93px}
+.ft-message{font-size:13px;margin-top:33px}
+.footerBox-fr{float:right;margin-right:250px;margin-top:93px}
+.link-nav ul{float:left;display:inline-block;margin:0}
+.link-nav span{font-size:12px;font-family:"微软雅黑";margin-bottom:15px;line-height:30px}
+.link-nav li a{font-size:15px;color:#ccc;line-height:30px}
+.link-nav li a:hover{text-decoration:underline}
+.weiboLogo{position:relative;top:3px;right:-3px;display:inline-block;height:20px;width:40px;background:url(../img/icon.png) no-repeat;background-position:0 -449px;cursor:pointer}
