@@ -47,7 +47,7 @@
 
 var modal = new Modal({
   // 1. 内容配置
-  cotent: "内容在此", //可传入节点和字符串
+  content: "123", //可传入节点和字符串
   // 2. 动画设置
   animation: {
     enter: 'bounceIn',
@@ -71,9 +71,15 @@ modal.on('confirm', function(){
 
 
 document.querySelector('.u-trigger').addEventListener('click', function(){
-  modal.show("<h3>弹窗内容</h3"); 
-
+  modal.show(); 
 })
+
+var aaa= document.createElement('div');
+aaa.innerHTML= 'hello';
+aaa.content = 'aa';
+for(var i in aaa){
+  console.log(i + ' '+aaa[i]);
+}
 </script>
 </body>
 </html>

@@ -1,3 +1,49 @@
+var emitter = {
+  // 注册事件
+  on: function(event, fn) {
+    var handles = this._handles || (this._handles = {}),
+      calls = handles[event] || (handles[event] = []);
+
+    // 找到对应名字的栈
+    calls.push(fn);
+
+    return this;
+  },
+  // 解绑事件
+  off: function(event, fn) {
+    if(!event || !this._handles) this._handles = {};
+    if(!this._handles) return;
+
+    var handles = this._handles , calls;
+
+    if (calls = handles[event]) {
+      if (!fn) {
+        handles[event] = [];
+        return this;
+      }
+      // 找到栈内对应listener 并移除
+      for (var i = 0, len = calls.length; i < len; i++) {
+        if (fn === calls[i]) {
+          calls.splice(i, 1);
+          return this;
+        }
+      }
+    }
+    return this;
+  },
+  // 触发事件
+  emit: function(event){
+    var args = [].slice.call(arguments, 1),
+      handles = this._handles, calls;
+
+    if (!handles || !(calls = handles[event])) return this;
+    // 触发所有对应名字的listeners
+    for (var i = 0, len = calls.length; i < len; i++) {
+      calls[i].apply(this, args)
+    }
+    return this;
+  }
+}
 function html2node (str) {
 	 var container = document.createElement('div');
 	 container.innerHTML = str;
@@ -47,6 +93,92 @@ function removeCookie(name, path, domain) {
 	cookie += '; max-age=0';
 	document.cookie = cookie;
 }
+function httpGET(url,args,onSucess) {
+	var xhr = new XMLHttpRequest();
+	if(args){
+		var url = url + '?';
+		for(var i in args){
+			url = url + i + '=' + args[i] + '&';
+		}
+		url = url.replace(/&$/,'');
+	}
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        	onSucess(this.responseText);       
+        }
+    }
+    xhr.open('get', url, true);
+    xhr.send();
+}
+function httpPOST(argument) {
+	// body...
+}
+function login(uname, pwd,onSucess) {
+	
+	httpGET('http://study.163.com/webDev/login.htm',{userName:hex_md5(uname),password:hex_md5(pwd)},onSucess);	
+}
+
+var template = 
+'<div class="login-layer">\
+	    <form action="http://study.163.com/webDev/login.htm" method="get" class="m-loginform">\
+	        <label class="title">登录网易云课堂</label>\
+	        <span class="close"></span>\
+	        <div class="username">\
+	            <input type="text" placeholder="账号">\
+	        </div>\
+	        <div class="password">\
+	            <input type="password" placeholder="密码">\
+	        </div>     \
+	        <input type="button" class="submit" value="">\
+	    </form>\
+	    <div class="zoom"></div>\
+	</div>'
+function LoginForm(opt) {
+	var options = opt || {};
+	var self = this;
+	this.callback = function () {
+		var username = self.form.getElementsByClassName('username')[0].getElementsByTagName('input')[0].value;
+		var password = self.form.getElementsByClassName('password')[0].getElementsByTagName('input')[0].value;
+		login(username,password,function(response){			
+			if(response=='1'){
+				setCookie('loginSuc','1');
+				self.hide();
+			}else{
+				alert('登陆验证失败');
+			}	
+		});
+	};
+	this._layout = template;
+	this.container = html2node(this._layout);
+	this.mask = this.container.getElementsByClassName('zoom')[0];
+	this.form = this.container.getElementsByClassName('m-loginform')[0];
+	this.close = this.container.getElementsByClassName('close')[0];
+	this.login = this.container.getElementsByClassName('submit')[0];
+	extend(this,options);
+
+	this.close.addEventListener('click', function() {
+		self.hide();
+	});
+	this.login.addEventListener('click', this.callback);
+	this.container.addEventListener('keydown', function(event) {
+		if(event.keyCode == 13){			
+			self.callback();
+		}
+	});
+
+}
+extend(LoginForm.prototype,{
+	 show: function() {
+	 	document.body.appendChild(this.container);
+		this.mask.style.display = 'block';
+		this.form.style.display = 'block';
+	},
+	hide: function() {
+		this.form.style.display = 'none';
+		this.mask.style.display = 'none';
+	},
+	
+});
 function Notice(opt) {
 
 	var options = opt||{};

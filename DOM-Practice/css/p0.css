@@ -19,10 +19,10 @@ body{background:#fff;margin:0}
 .f-cb:after{content:'.';display:block;clear:both;height:0;overflow:hidden;visibility:hidden}
 .g-mn{width:100%;height:2000px}
 .m-notice{background:#f3f3f3;}
-.m-notice .align{width:1206px;height:36px;margin:0 auto;line-height:36px;font-size:13px}
+.m-notice .align{width:1205px;height:36px;margin:0 auto;line-height:36px;font-size:13px}
 .m-notice .content{float:left}
 .m-notice .ctrl{float:right}
-.m-notice .content{float:left;width:1000px}
+.m-notice .content{float:left;}
 .m-notice .content a{color:green}
 .m-notice .content a:hover{text-decoration:underline}
 .m-notice .ctrl{float:right}
@@ -52,15 +52,17 @@ body{background:#fff;margin:0}
 .m-conSearch{background:url(../img/icon.png);margin-top:42px;width:25px;height:22px;padding-left:10px;float:right;background-position:0 -46px}
 .m-conSearch:hover{cursor:pointer;background-position:0 -75px}
 .zoom{background:rgba(0,0,0,.7);z-index:11;width:100%;top:0;bottom:0;display:none;position:absolute;height:100%}
-.u-loginForm{position:fixed;left:50%;top:50%;margin-left:-195px;margin-top:-145px;width:390px;height:290px;border:1px #ccc solid;background:#fff;z-index:100;display:none}
-._topicForm{display:block;line-height:68px;padding-left:40px;font-family:"微软雅黑";font-weight:700;font-size:18px}
-._nameForm{border:1px #dfdfdf solid;background-color:#fafafa;width:293px;height:43px;margin-left:40px;padding-left:14px;box-shadow:2px 2px 2px 2px #f1f1f1 inset}
-._pswForm{border:1px #dfdfdf solid;background-color:#fafafa;width:293px;height:43px;margin-left:40px;margin-top:20px;padding-left:14px;box-shadow:2px 2px 2px 2px #f1f1f1 inset}
-._loginForm{display:block;position:absolute;width:309px;height:46px;background:url(../img/login.png) no-repeat;background-position:0 0;border:0;margin-left:40px;margin-top:20px;cursor:pointer;zoom:1.04}
-._loginForm:hover{background-position:0 -60px}
-._loginForm:active{background-position:0 -120px}
-.cancelBtn{position:absolute;right:10px;top:10px;width:20px;height:16px;background:url(../img/icon.png)}
-.cancelBtn:hover{background-position:0 -19px}
+.m-loginform{position:fixed;left:50%;top:50%;margin-left:-195px;margin-top:-145px;width:390px;height:290px;border:1px #ccc solid;background:#fff;z-index:100;display:none}
+.m-loginform .title{display:block;line-height:68px;padding-left:40px;font-family:"微软雅黑";font-weight:700;font-size:18px}
+.m-loginform div>input{border:1px #dfdfdf solid;background-color:#fafafa;width:293px;height:43px;margin-left:40px;padding-left:14px;box-shadow:2px 2px 2px 2px #f1f1f1 inset; }
+
+.m-loginform .password{margin-top: 20px;}
+.m-loginform div>input::-webkit-input-placeholder{font:16px/28px 'Microsoft YaHei'; color: #cccccc}
+.m-loginform .submit{display:block;position:absolute;width:309px;height:46px;background:url(../img/login.png) no-repeat;background-position:0 0;border:0;margin-left:40px;margin-top:20px;cursor:pointer;zoom:1.04}
+.m-loginform .submit:hover{background-position:0 -60px}
+.m-loginform .submit:active{background-position:0 -120px}
+.m-loginform .close{position:absolute;right:10px;top:10px;width:20px;height:16px;background:url(../img/icon.png)}
+.m-loginform .close:hover{background-position:0 -19px}
 .m-slide{position:relative;height:460px;overflow:hidden;width:100%}
 .m-slide li{position:absolute;left:50%;width:100%;min-width:1650px}
 .m-slide img{width:100%;min-height:460px;margin-left:-50%}

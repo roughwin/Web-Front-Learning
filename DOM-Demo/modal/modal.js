@@ -105,6 +105,7 @@ var emitter = {
 
 
     this._initEvent();
+    console.log(options);
 
   }
 
@@ -122,18 +123,21 @@ var emitter = {
 
         this.body.innerHTML = 0;
         this.body.appendChild(content);
+        
 
       }else{
-
-        this.body.innerHTML = content;
+        this.body.innerHTML = content;        
       }
     },
 
     // 显示弹窗
     show: function(content){
       
-      if(content) this.setContent(content);
-
+      if(content) {this.setContent(content);}
+      else {
+        this.setContent(this.content);
+        
+      }
       document.body.appendChild(this.container);
       animateClass(this.wrap, this.animation.enter)
 

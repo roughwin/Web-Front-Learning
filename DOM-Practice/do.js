@@ -1,4 +1,3 @@
-
 window.onload = function() {
 	var notice = document.getElementsByClassName('m-notice')[0];
 	var noticeC = notice.getElementsByClassName('content')[0];
@@ -17,6 +16,9 @@ window.onload = function() {
 	};
 	window.announce = new Notice(a);
 	window.a = a;
-	console.log(a);
+	var lll = new LoginForm();
+	window.lll = lll;
+	lll.show();
+
 }
 
