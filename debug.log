@@ -4,3 +4,13 @@
 [0619/160908:ERROR:exception_snapshot_win.cc(57)] thread ID 2348 not found in process
 [0619/160908:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::InitializeException failed
 [0619/160908:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558
+[0623/182802:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558
+[0625/105718:ERROR:process_reader_win.cc(232)] ReadMemory at 0x558f0000 of 64 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0625/105718:WARNING:pe_image_reader.cc(280)] could not read dos header from C:\Program Files (x86)\Google\Chrome\Application\51.0.2704.103\chrome_child.dll
+[0625/105718:ERROR:process_reader_win.cc(232)] ReadMemory at 0x5ddc0000 of 64 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0625/105718:WARNING:pe_image_reader.cc(280)] could not read dos header from C:\Program Files (x86)\360\360Safe\360verify.dll
+[0625/105718:ERROR:process_reader_win.cc(232)] ReadMemory at 0x6c8a0000 of 64 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0625/105718:WARNING:pe_image_reader.cc(280)] could not read dos header from C:\WINDOWS\SYSTEM32\dwrite.dll
+[0625/105718:ERROR:process_reader_win.cc(232)] ReadMemory at 0x6f5000 of 45056 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0625/105718:ERROR:crash_report_exception_handler.cc(102)] WriteEverything failed
+[0625/105718:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558

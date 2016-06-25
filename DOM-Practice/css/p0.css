@@ -30,28 +30,27 @@ body{background:#fff;margin:0}
 .m-notice .ctrl span{font-size:15px}
 .m-notice .ctrl span:hover:before{background-position:0 -12px}
 .m-notice .ctrl span:hover{color:green;cursor:pointer}
-.m-topBarContent{height:90px;width:1206px;margin:0 auto;position:relative}
-.u-conLeft{height:90px;float:left;width:700px;margin-top:0;padding:0}
-.u-conLogo{width:240px;height:22px;background:url(../img/logo.png);background-position:0 -7px;position:absolute;top:34px;left:1px}
+.m-topBarContent{height:22px;width:1206px;margin:0 auto;position:relative; padding: 32px 0 36px 0;}
+.u-conLogo{float: left; margin:auto 0; width:240px;height:22px;background:url(../img/logo.png);background-position:0 -7px;}
 .u-conLogo:hover{background-position:0 -49px}
-.u-conAtten{position:absolute;height:19px;left:290px;background:url(../img/icon.png) no-repeat;background-position:0 -110px;border-radius:4px;width:52px;top:35px;cursor:pointer}
-.u-conAtten:hover{background:url(../img/icon.png) no-repeat;background-position:0 -382px}
-.u-conAtten .userAtten{position:absolute;top:3px;left:22px}
-.u-conAttened{height:22px;left:290px;background:url(../img/icon.png) no-repeat;background-position:0 -220px;border-radius:4px;width:150px;top:35px;cursor:pointer;display:none;position:absolute}
-.u-conAttened:hover{background-position:0 -157px}
-.u-conAttened .userAttened{position:absolute;top:3px;left:27px}
-.u-conAttened .cancel{position:absolute;top:3px;left:85px}
-.u-conAttened .cancel:hover{color:green;text-decoration:underline}
-.u-conFans{line-height:89px;font-size:13px;position:absolute;left:360px}
-.u-conRight{float:left}
-.m-conNav{float:left;padding-top:5px}
-.m-conNav li{display:inline-block;font-size:16px;line-height:70px;padding-right:40px}
-.m-conNav li a{color:#555;font-weight:600}
-.m-conNav li a:hover{color:green}
-.m-conNav li:last-child{padding-right:60px}
-.m-conSearch{background:url(../img/icon.png);margin-top:42px;width:25px;height:22px;padding-left:10px;float:right;background-position:0 -46px}
+.u-atten{float: left; height: 19px;}
+.u-atten .conAtten{float: left;height:19px; background:url(../img/icon.png) no-repeat;background-position:0 -110px;border-radius:4px;width:52px;top:35px;cursor:pointer}
+.u-atten .conAtten:hover{background:url(../img/icon.png) no-repeat;background-position:0 -382px}
+.u-atten .conAtten .userAtten{position: relative;top:3px;left:22px}
+.u-atten .conAttened{float: left; height:22px;left:290px;background:url(../img/icon.png) no-repeat;background-position:0 -220px;border-radius:4px;width:150px;top:35px;cursor:pointer;display:none;}
+.u-atten .conAttened:hover{background-position:0 -157px}
+.u-atten .conAttened .userAttened{ position: relative; top:3px;left:27px}
+.u-atten .conAttened .cancel{ position: relative; top:3px;left:45px}
+.u-atten .conAttened .cancel:hover{color:green;text-decoration:underline}
+.u-atten .conFans{float: left;margin-left: 30px; font-size:13px;}
+
+.m-conNav{float:right;}
+.m-conNav a{display:inline-block;font-size:16px;padding-right:40px}
+.m-conNav a{color:#555;font-weight:600}
+.m-conNav a:hover{color:green}
+.m-conSearch{background:url(../img/icon.png);width:25px;height:22px;padding-left:10px;float:right;background-position:0 -46px}
 .m-conSearch:hover{cursor:pointer;background-position:0 -75px}
-.zoom{background:rgba(0,0,0,.7);z-index:11;width:100%;top:0;bottom:0;display:none;position:absolute;height:100%}
+.zoom{background:rgba(0,0,0,.7);z-index:11;width:100%;top:0;bottom:0;display:none;position:fixed;height:100%}
 .m-loginform{position:fixed;left:50%;top:50%;margin-left:-195px;margin-top:-145px;width:390px;height:290px;border:1px #ccc solid;background:#fff;z-index:100;display:none}
 .m-loginform .title{display:block;line-height:68px;padding-left:40px;font-family:"微软雅黑";font-weight:700;font-size:18px}
 .m-loginform div>input{border:1px #dfdfdf solid;background-color:#fafafa;width:293px;height:43px;margin-left:40px;padding-left:14px;box-shadow:2px 2px 2px 2px #f1f1f1 inset; }
@@ -63,9 +62,10 @@ body{background:#fff;margin:0}
 .m-loginform .submit:active{background-position:0 -120px}
 .m-loginform .close{position:absolute;right:10px;top:10px;width:20px;height:16px;background:url(../img/icon.png)}
 .m-loginform .close:hover{background-position:0 -19px}
-.m-slide{position:relative;height:460px;overflow:hidden;width:100%}
-.m-slide li{position:absolute;left:50%;width:100%;min-width:1650px}
-.m-slide img{width:100%;min-height:460px;margin-left:-50%}
+.m-slide{position:relative;overflow:hidden;width:100%}
+.m-slide .imgwrap {}
+.m-slide a{display: block; }
+.m-slide img {display: block; width:1616px;height: 460px;margin: 0 auto;}
 .contBtn{position:absolute;bottom:20px;width:100%;height:10px;text-align:center;z-index:100px}
 .contBtn span{display:inline-block;width:10px;height:10px;margin-left:11px;border-radius:5px;background-color:#ccc;cursor:pointer}
 .hide{display:none}

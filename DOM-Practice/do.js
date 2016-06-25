@@ -17,8 +17,40 @@ window.onload = function() {
 	window.announce = new Notice(a);
 	window.a = a;
 	var lll = new LoginForm();
+	lll.on('login', function(){
+			//console.log('confirm');
+			var username = this.form.getElementsByClassName('username')[0].getElementsByTagName('input')[0].value;
+			var password = this.form.getElementsByClassName('password')[0].getElementsByTagName('input')[0].value;
+			var onSucess = function (response) {
+				if(response=='1'){
+					setCookie('loginSuc','1');
+					this.hide();
+					attention(function () {
+						document.getElementsByClassName('u-conAtten')[0].style.display = 'none';
+						document.getElementsByClassName('u-conAttened')[0].style.display = 'block';
+						
+						console.log('change logo.');
+						alert('change logo');
+					});
+					
+				}else{
+					alert('登陆验证失败');
+				}	
+			};
+			login(username,password,onSucess.bind(this));
+
+		});
 	window.lll = lll;
-	lll.show();
+	var co = document.getElementsByClassName('conAtten')[0];
+	co.addEventListener('click', function () {
+		
+		lll.show();
+		
+		
+	});
+
+	//banner
+
 
 }
 

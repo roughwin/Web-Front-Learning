@@ -93,7 +93,7 @@ function removeCookie(name, path, domain) {
 	cookie += '; max-age=0';
 	document.cookie = cookie;
 }
-function httpGET(url,args,onSucess) {
+function httpGET(url,onSucess,args) {
 	var xhr = new XMLHttpRequest();
 	if(args){
 		var url = url + '?';
@@ -113,11 +113,12 @@ function httpGET(url,args,onSucess) {
 function httpPOST(argument) {
 	// body...
 }
-function login(uname, pwd,onSucess) {
-	
-	httpGET('http://study.163.com/webDev/login.htm',{userName:hex_md5(uname),password:hex_md5(pwd)},onSucess);	
+function login(uname, pwd,onSucess) {	
+	httpGET('http://study.163.com/webDev/login.htm',onSucess,{userName:hex_md5(uname),password:hex_md5(pwd)});	
 }
-
+function attention(onSucess) {
+	httpGET('http://study.163.com/webDev/attention.htm',onSucess);
+}
 var template = 
 '<div class="login-layer">\
 	    <form action="http://study.163.com/webDev/login.htm" method="get" class="m-loginform">\
@@ -136,18 +137,7 @@ var template =
 function LoginForm(opt) {
 	var options = opt || {};
 	var self = this;
-	this.callback = function () {
-		var username = self.form.getElementsByClassName('username')[0].getElementsByTagName('input')[0].value;
-		var password = self.form.getElementsByClassName('password')[0].getElementsByTagName('input')[0].value;
-		login(username,password,function(response){			
-			if(response=='1'){
-				setCookie('loginSuc','1');
-				self.hide();
-			}else{
-				alert('登陆验证失败');
-			}	
-		});
-	};
+	
 	this._layout = template;
 	this.container = html2node(this._layout);
 	this.mask = this.container.getElementsByClassName('zoom')[0];
@@ -159,12 +149,8 @@ function LoginForm(opt) {
 	this.close.addEventListener('click', function() {
 		self.hide();
 	});
-	this.login.addEventListener('click', this.callback);
-	this.container.addEventListener('keydown', function(event) {
-		if(event.keyCode == 13){			
-			self.callback();
-		}
-	});
+	this.login.addEventListener('click', this._onLogin.bind(this));
+	this.container.addEventListener('keydown', this._onEnter.bind(this));
 
 }
 extend(LoginForm.prototype,{
@@ -177,8 +163,18 @@ extend(LoginForm.prototype,{
 		this.form.style.display = 'none';
 		this.mask.style.display = 'none';
 	},
+	_onLogin: function() {
+		this.emit('login');
+	},
+	_onEnter: function (event) {
+		if(event.keyCode == 13){
+			this.emit('login');
+		}
+		
+	},
 	
 });
+extend(LoginForm.prototype, emitter);
 function Notice(opt) {
 
 	var options = opt||{};
