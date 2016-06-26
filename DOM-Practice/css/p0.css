@@ -1,3 +1,4 @@
+*{-webkit-text-size-adjust:auto !important;}
 address,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 table{border-collapse:collapse;border-spacing:0}
 caption,th{text-align:left;font-weight:400}
@@ -30,19 +31,21 @@ body{background:#fff;margin:0}
 .m-notice .ctrl span{font-size:15px}
 .m-notice .ctrl span:hover:before{background-position:0 -12px}
 .m-notice .ctrl span:hover{color:green;cursor:pointer}
+
 .m-topBarContent{height:22px;width:1206px;margin:0 auto;position:relative; padding: 32px 0 36px 0;}
 .u-conLogo{float: left; margin:auto 0; width:240px;height:22px;background:url(../img/logo.png);background-position:0 -7px;}
 .u-conLogo:hover{background-position:0 -49px}
-.u-atten{float: left; height: 19px;}
-.u-atten .conAtten{float: left;height:19px; background:url(../img/icon.png) no-repeat;background-position:0 -110px;border-radius:4px;width:52px;top:35px;cursor:pointer}
-.u-atten .conAtten:hover{background:url(../img/icon.png) no-repeat;background-position:0 -382px}
-.u-atten .conAtten .userAtten{position: relative;top:3px;left:22px}
-.u-atten .conAttened{float: left; height:22px;left:290px;background:url(../img/icon.png) no-repeat;background-position:0 -220px;border-radius:4px;width:150px;top:35px;cursor:pointer;display:none;}
-.u-atten .conAttened:hover{background-position:0 -157px}
-.u-atten .conAttened .userAttened{ position: relative; top:3px;left:27px}
-.u-atten .conAttened .cancel{ position: relative; top:3px;left:45px}
-.u-atten .conAttened .cancel:hover{color:green;text-decoration:underline}
-.u-atten .conFans{float: left;margin-left: 30px; font-size:13px;}
+
+.m-atten{float: left; height: 19px;}
+.m-atten .z-unfollow{float: left;height:19px; background:url(../img/icon.png) no-repeat;background-position:0 -110px;border-radius:4px;width:52px;top:35px;cursor:pointer}
+.m-atten .z-unfollow:hover{background:url(../img/icon.png) no-repeat;background-position:0 -382px}
+.m-atten .z-unfollow .text{position: relative;top:3px;left:22px}
+.m-atten .z-followed{float: left; height:22px;left:290px;background:url(../img/icon.png) no-repeat;background-position:0 -220px;border-radius:4px;width:150px;top:35px;cursor:pointer;display:none;}
+.m-atten .z-followed:hover{background-position:0 -157px}
+.m-atten .z-followed .text{ position: relative; top:3px;left:27px}
+.m-atten .z-followed .cancel{ position: relative; top:3px;left:45px}
+.m-atten .z-followed .cancel:hover{color:green;text-decoration:underline}
+.m-atten .u-fans{float: left;margin-left: 30px; font-size:13px;}
 
 .m-conNav{float:right;}
 .m-conNav a{display:inline-block;font-size:16px;padding-right:40px}
@@ -62,10 +65,12 @@ body{background:#fff;margin:0}
 .m-loginform .submit:active{background-position:0 -120px}
 .m-loginform .close{position:absolute;right:10px;top:10px;width:20px;height:16px;background:url(../img/icon.png)}
 .m-loginform .close:hover{background-position:0 -19px}
-.m-slide{position:relative;overflow:hidden;width:100%}
-.m-slide .imgwrap {}
-.m-slide a{display: block; }
-.m-slide img {display: block; width:1616px;height: 460px;margin: 0 auto;}
+
+.m-banner{position:relative;overflow:hidden;width:100%}
+.m-banner .imgwrap {}
+.m-banner a{display: block; }
+.m-banner img {display: block; width:1616px;height: 460px;margin: 0 auto;}
+
 .contBtn{position:absolute;bottom:20px;width:100%;height:10px;text-align:center;z-index:100px}
 .contBtn span{display:inline-block;width:10px;height:10px;margin-left:11px;border-radius:5px;background-color:#ccc;cursor:pointer}
 .hide{display:none}

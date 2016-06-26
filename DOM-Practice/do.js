@@ -16,9 +16,11 @@ window.onload = function() {
 	};
 	window.announce = new Notice(a);
 	window.a = a;
+
+
 	var lll = new LoginForm();
 	lll.on('login', function(){
-			//console.log('confirm');
+			// login成功 callback
 			var username = this.form.getElementsByClassName('username')[0].getElementsByTagName('input')[0].value;
 			var password = this.form.getElementsByClassName('password')[0].getElementsByTagName('input')[0].value;
 			var onSucess = function (response) {
@@ -26,11 +28,9 @@ window.onload = function() {
 					setCookie('loginSuc','1');
 					this.hide();
 					attention(function () {
-						document.getElementsByClassName('u-conAtten')[0].style.display = 'none';
-						document.getElementsByClassName('u-conAttened')[0].style.display = 'block';
-						
-						console.log('change logo.');
-						alert('change logo');
+						// 改变logo状态
+						document.getElementsByClassName('z-unfollow')[0].style.display = 'none';
+						document.getElementsByClassName('z-followed')[0].style.display = 'block';
 					});
 					
 				}else{
@@ -41,7 +41,7 @@ window.onload = function() {
 
 		});
 	window.lll = lll;
-	var co = document.getElementsByClassName('conAtten')[0];
+	var co = document.getElementsByClassName('u-follow')[0];
 	co.addEventListener('click', function () {
 		
 		lll.show();
@@ -50,7 +50,19 @@ window.onload = function() {
 	});
 
 	//banner
+	var banner = new Banner({
+		container: document.getElementsByClassName('m-banner')[0],
+		list : [
+			{link:'./img/banner1.jpg',src:'#'},
+			{link:'./img/banner2.jpg',src:'#'},
+			{link:'./img/banner3.jpg',src:'#'},
+		],
 
-
+	});
+	window.banner = banner;
+	banner.show(0);
+	setInterval(function () {
+		banner.next();
+	}, 3000);
 }
 

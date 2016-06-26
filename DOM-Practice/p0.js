@@ -175,6 +175,10 @@ extend(LoginForm.prototype,{
 	
 });
 extend(LoginForm.prototype, emitter);
+
+/*
+* Notice 模块
+*/
 function Notice(opt) {
 
 	var options = opt||{};
@@ -207,3 +211,38 @@ extend(Notice.prototype, {
 	}
 });
 
+/*
+	Banner模块 轮播图
+*/
+function Banner(opt) {
+	var options = opt || {};
+
+	this.template = '<div class="imgwrap">\
+	                    <a href="">\
+	                        <img src="./img/banner1.jpg" alt="banner1">\
+	                    </a>\
+	                </div>'
+	extend(this, opt);
+	this.container.appendChild(html2node(this.template));
+	this.link = this.container.getElementsByTagName('a')[0];
+	this.img = this.link.getElementsByTagName('img')[0];
+	this.count = 0;
+
+}
+extend(Banner.prototype, {
+	show : function (num){
+		this.img.style.opacity = 0;
+		this.img.style.transition = '';
+		this.img.src = this.list[num]['link'];
+		setTimeout(function () {
+			this.img.style.transition = '0.5s';
+			this.img.style.opacity = 1;
+		}.bind(this), 30);
+		
+	},
+	next: function() {
+		this.count += 1;
+		this.count = this.count % this.list.length;
+		this.show(this.count);
+	}
+});
