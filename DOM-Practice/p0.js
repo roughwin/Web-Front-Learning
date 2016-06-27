@@ -244,5 +244,21 @@ extend(Banner.prototype, {
 		this.count += 1;
 		this.count = this.count % this.list.length;
 		this.show(this.count);
+	},
+	loop: function () {
+		//鼠标移上 停止轮播
+		this.img.addEventListener('mouseover', function () {
+			window.clearInterval(this.interval);			
+		}.bind(this));
+		//鼠标移出 继续轮播
+		this.img.addEventListener('mouseout', function () {			
+			this.interval = setInterval(function () {
+				this.next();
+			}.bind(this), this.time);
+		}.bind(this));
+		//自动开始轮播
+		this.interval = setInterval(function () {
+			this.next();
+		}.bind(this), this.time);
 	}
 });

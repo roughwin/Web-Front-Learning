@@ -57,12 +57,14 @@ window.onload = function() {
 			{link:'./img/banner2.jpg',src:'#'},
 			{link:'./img/banner3.jpg',src:'#'},
 		],
+		time : 3000,
 
 	});
 	window.banner = banner;
 	banner.show(0);
-	setInterval(function () {
-		banner.next();
-	}, 3000);
+	// setInterval(function () {
+	// 	banner.next();
+	// }, 3000);
+	banner.loop();
 }
 
