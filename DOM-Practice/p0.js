@@ -216,28 +216,55 @@ extend(Notice.prototype, {
 */
 function Banner(opt) {
 	var options = opt || {};
-
 	this.template = '<div class="imgwrap">\
 	                    <a href="">\
 	                        <img src="./img/banner1.jpg" alt="banner1">\
 	                    </a>\
 	                </div>'
 	extend(this, opt);
+	this.pointer = document.createElement('div');
+	this.pointer.className = 'ctrl';
+	for(var i = 0; i< this.list.length; i++){
+		var li = document.createElement('i');
+		function callback(count) {
+			
+			return function () {
+				this.count = count;
+				this.show(count);
+				
+			}.bind(this);
+		}
+		li.addEventListener('click', callback.call(this,i));
+		this.pointer.appendChild(li);
+	}
 	this.container.appendChild(html2node(this.template));
+	this.container.appendChild(this.pointer);
 	this.link = this.container.getElementsByTagName('a')[0];
 	this.img = this.link.getElementsByTagName('img')[0];
+	this.oldnum = 0;
 	this.count = 0;
-
+	this.init();
 }
 extend(Banner.prototype, {
-	show : function (num){
+	init : function () {
+		var image = [];
+		for (var i = 0; i < this.list.length; i++) {
+				image[i] = new Image();
+				image[i].src = this.list[i]['src'];
+			}	
+	},
+	show : function (num){		
 		this.img.style.opacity = 0;
 		this.img.style.transition = '';
-		this.img.src = this.list[num]['link'];
+		this.img.src = this.list[num]['src'];
+		this.link.href = this.list[num]['href'];
+		this.pointer.getElementsByTagName('i')[this.oldnum].className = '';			
+		this.pointer.getElementsByTagName('i')[num].className = 'current';
 		setTimeout(function () {
 			this.img.style.transition = '0.5s';
 			this.img.style.opacity = 1;
 		}.bind(this), 30);
+		this.oldnum = num;
 		
 	},
 	next: function() {
@@ -247,14 +274,16 @@ extend(Banner.prototype, {
 	},
 	loop: function () {
 		//鼠标移上 停止轮播
-		this.img.addEventListener('mouseover', function () {
-			window.clearInterval(this.interval);			
+		this.container.addEventListener('mouseover', function () {
+			window.clearInterval(this.interval);	
+			// console.log('stop');		
 		}.bind(this));
 		//鼠标移出 继续轮播
-		this.img.addEventListener('mouseout', function () {			
+		this.container.addEventListener('mouseout', function () {			
 			this.interval = setInterval(function () {
 				this.next();
 			}.bind(this), this.time);
+			// console.log('go');
 		}.bind(this));
 		//自动开始轮播
 		this.interval = setInterval(function () {
@@ -262,3 +291,6 @@ extend(Banner.prototype, {
 		}.bind(this), this.time);
 	}
 });
+
+
+

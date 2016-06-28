@@ -53,9 +53,12 @@ window.onload = function() {
 	var banner = new Banner({
 		container: document.getElementsByClassName('m-banner')[0],
 		list : [
-			{link:'./img/banner1.jpg',src:'#'},
-			{link:'./img/banner2.jpg',src:'#'},
-			{link:'./img/banner3.jpg',src:'#'},
+			{src:'./img/banner1.jpg',href:'http://open.163.com/'},
+			{src:'./img/banner2.jpg',href:'http://study.163.com/'},
+			{src:'./img/banner3.jpg',href:'http://www.icourse163.org/'},
+			{src:'./img/banner1.jpg',href:'http://open.163.com/'},
+			{src:'./img/banner2.jpg',href:'http://study.163.com/'},
+			
 		],
 		time : 5000,
 
@@ -63,5 +66,18 @@ window.onload = function() {
 	window.banner = banner;
 	banner.show(0);
 	banner.loop();
+
+	
+	function callback(response) {
+		var abc = JSON.parse(response);
+		debugger;
+		console.log(abc);
+	};
+	var xyt = function () {
+		httpGET('http://study.163.com/webDev/couresByCategory.htm',callback,{pageNo:1,psize:20,type:'20'});
+	}
+	window.xyt = xyt;
+	//httpGET('http://study.163.com/webDev/hotcouresByCategory.htm',callback);
+
 }
 
