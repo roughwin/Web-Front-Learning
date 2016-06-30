@@ -15,3 +15,5 @@
 [0625/105718:ERROR:crash_report_exception_handler.cc(102)] WriteEverything failed
 [0625/105718:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558
 [0626/113503:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558
+[0629/221645:ERROR:process_reader_win.cc(141)] SuspendThread: ¾Ü¾ø·ÃÎÊ¡£ (0x5)
+[0629/221645:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558

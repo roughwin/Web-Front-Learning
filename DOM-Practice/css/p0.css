@@ -5,7 +5,7 @@ caption,th{text-align:left;font-weight:400}
 abbr,body,fieldset,html,iframe,img{border:0}
 address,cite,dfn,em,i,var{font-style:normal}
 [hidefocus],summary{outline:0}
-li{list-style:none}
+ul,li{list-style:none;margin: 0;padding: 0;}
 h1,h2,h3,h4,h5,h6,small{font-size:100%}
 sub,sup{font-size:83%}
 code,kbd,pre,samp{font-family:inherit}
@@ -16,7 +16,8 @@ a,button{cursor:pointer}
 b,em,h1,h2,h3,h4,h5,h6,strong{font-weight:700}
 a,a:hover,del,ins,s,u{text-decoration:none}
 body,button,input,keygen,legend,select,textarea{outline:0;font:12px/1.14 arial,\5b8b\4f53;color:#333}
-body{background:#fff;margin:0}
+body{background:#fff;margin:0;min-width: 1616px;}
+p{margin: 0;padding: 0;}
 .f-cb:after{content:'.';display:block;clear:both;height:0;overflow:hidden;visibility:hidden}
 .g-mn{width:100%;height:2000px}
 .m-notice{background:#f3f3f3;}
@@ -66,12 +67,13 @@ body{background:#fff;margin:0}
 .m-loginform .close{position:absolute;right:10px;top:10px;width:20px;height:16px;background:url(../img/icon.png)}
 .m-loginform .close:hover{background-position:0 -19px}
 
-.m-banner{position:relative;overflow:hidden;width:1616px; height: 460px;margin: 0 auto;z-index: 100;}
-.m-banner .imgwrap {height: 100%;}
+.m-banner{position:relative;overflow:hidden;z-index: 100;width: 100%;}
+.m-banner .imgwrap {position: relative; width:1616px; height: 460px;margin: 0 auto;}
 .m-banner a{display: block; height: 100%;}
 .m-banner img {display: block; width:100%;height: 100%;}
-.m-banner .ctrl{position: absolute;left:764px;bottom: 20px;}
-.m-banner .ctrl i{float: left;width:10px;height:10px;margin-left:11px;border-radius:5px;background-color:#ccc;cursor:pointer}
+.m-banner .ctrl{position: absolute; width: 100%;height: 10px; text-align: center;bottom: 20px;}
+.m-banner .ctrl ul{display: inline-block;text-align: center;}
+.m-banner .ctrl li{float: left;width:10px;height:10px;margin:0 5px 0 6px;border-radius:5px;background-color:#ccc;cursor:pointer}
 .m-banner .ctrl .current{background-color:#000;}
 
 .m-intro{position:relative;width:1206px;height:300px;margin:0 auto}
@@ -86,13 +88,36 @@ body{background:#fff;margin:0}
 .m-intro-more:hover{text-decoration:underline}
 .u-showPic{width:100%}
 .u-showPic img{float:left;padding-left:2px;padding-right:2px;width:20%;box-sizing:border-box}
-.mainProduct{background:#f8f8f8;position:relative}
-.mainProductCont{width:1206px;margin:0 auto}
-.m-leftList{position:relative;top:84px;width:960px}
-.u-Topbar li,.u-Topbar ul{display:inline-block;float:left}
-.u-Topbar a{display:inline-block;width:200px;height:50px;font-size:20px;line-height:50px;font-family:"微软雅黑";text-align:center;box-shadow:1px 1px 0 1px #eee;color:#000}
-.u-Topbar{height:69px;margin-left:-39px}
-.u-Topbar .u-active-f1{background:#39a030;color:#fff}
+
+.g-course{background:#f8f8f8;position:relative}
+.g-course .center{position: relative;width: 1206px;margin: 80px auto 0 auto;}
+.m-tab {float: left;}
+.m-tab .topbar li,.m-tab ul{display:inline-block;float:left}
+.m-tab .topbar a{display:inline-block;width:200px;height:50px;font-size:20px;line-height:50px;font-family:"微软雅黑";text-align:center;box-shadow:1px 1px 0 1px #eee;color:#000}
+.m-tab .topbar{height:69px;}
+.m-tab .topbar .z-active{background:#39a030;color:#fff}
+
+.m-tab .board>div{display: none;}
+.m-tab .board .z-active{display: block; }
+
+.clearfix:after{content: '.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}
+.clearfix{zoom:1;}
+
+.m-tab .course{margin:0;width: 960px;}
+.m-tab .course li{float:left;list-style-type:none;margin-right:10px;margin-top:18px;width:225px;height:228px;overflow:hidden;cursor:pointer;background-color: white;}
+.m-tab .course img{width: 223px; height: 124px; padding:1px;}
+.m-tab .course .title{margin-top:5px;color:rgb(51, 51, 51);padding:0px 6px;font:12px/16.8px 微软雅黑;}
+.m-tab .course .title p{display: inline-block;width: 213px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;color: #333;}
+.m-tab .course .provider{height: 32px;color: rgb(153, 153, 153);padding: 0px 6px;font: 12px/32px 微软雅黑;}
+.m-tab .course .learner{display: inline-block; color:#999;margin-left:4px;border:1px solid #999;border-radius:3px;width:40px;height:16px;background:url(../img/icon.png) no-repeat;background-position:3px -409px;padding-top:2px;padding-left:15px;font-size:12px}
+.m-tab .course .price{color: rgb(57, 160, 48);font: 12px/12px 微软雅黑;padding-top: 10px;}
+
+.m-tab .courseNum{width:300px;height:30px;margin-top:40px}
+.m-tab .courseNum li{display:inline-block;width:20px;height:20px;text-align:center;line-height:20px;margin-right:4px;cursor:pointer}
+.m-tab .courseNum li:hover{background:#9dd8b1}
+.m-tab .courseNum-pre{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -280px}
+.m-tab .courseNum-next{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -353px}
+
 .u-proIntro{width:225px;height:230px;background:#fff;float:right;margin-top:26px;border:1px solid #eee}
 .proIntroVideo div:nth-of-type(1){height:55px;line-height:55px;border-bottom:1px solid #ddd;font-size:16px;padding-left:20px}
 .proIntroVideo div:nth-child(2){height:44px;font-style:14px;padding-left:20px;line-height:44px;color:#666}
@@ -107,19 +132,8 @@ body{background:#fff;margin:0}
 .playerBtn{display:inline-block;width:15px;height:18px;background:url(../img/icon.png) no-repeat;cursor:pointer;position:absolute;right:10px;top:10px;z-index:1000}
 .u-courList{width:960px;height:1240px;background:#FBF9F9;float:left}
 .courseShow{width:225px;height:228px;margin-top:20px;margin-right:20px;background:#00f;box-shadow:0 1px 0 1px #f1f1f1;cursor:pointer}
-#okdklkd{width:960px;margin:0 -35px}
-#okdklkd li{float:left;list-style-type:none;margin-left:10px;margin-top:18px;width:225px;height:228px;overflow:hidden;cursor:pointer}
-.okmy{width:223px;height:124px}
-#okdklkd li p:nth-of-type(1){padding-left:4px;font-size:12px;color:#000;margin:0}
-#okdklkd li p:nth-of-type(2){padding-left:4px;font-size:12px;padding-top:10px;color:#666;margin:0}
-#okdklkd li p:nth-of-type(3){color:#999;margin-top:15px;margin-left:4px;border:1px solid #999;border-radius:3px;width:40px;height:16px;background:url(../img/icon.png) no-repeat;background-position:3px -409px;padding-top:2px;padding-left:15px;font-size:12px}
-#okdklkd li p:nth-of-type(4){color:red;font-family:"微软雅黑";font-weight:700;padding-left:4px}
-#okdklkd li .okmyy{color:#00f}
-.courseNum{float:right;width:300px;height:30px;margin-top:40px}
-.courseNum li{display:inline-block;width:20px;height:20px;text-align:center;line-height:20px;margin-right:4px;cursor:pointer}
-.courseNum li:hover{background:#9dd8b1}
-.courseNum-pre{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -280px}
-.courseNum-next{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -353px}
+
+
 .topi{height:70px;width:226px;overflow:hidden}
 .topi img{display:inline-block;width:50px;height:50px;margin-top:20px;margin-left:20px}
 .f-thide{display:inline-block;width:120px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;margin-top:28px;margin-right:20px}

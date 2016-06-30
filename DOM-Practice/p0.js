@@ -44,6 +44,28 @@ var emitter = {
     return this;
   }
 }
+function getElementChildren(e){
+	if(e.children){
+		return e.children;
+	}else{
+
+		/* compatible other browse */
+		var i, len, children = [];
+		var child = element.firstChild;
+		if(child != element.lastChild){
+			while(child != null){
+				if(child.nodeType == 1){
+						children.push(child);
+					}
+				child = child.nextSibling;
+			}
+		}
+		else{
+			children.push(child);
+		}
+		return children;
+	}
+}
 function html2node (str) {
 	 var container = document.createElement('div');
 	 container.innerHTML = str;
@@ -114,7 +136,7 @@ function httpPOST(argument) {
 	// body...
 }
 function login(uname, pwd,onSucess) {	
-	httpGET('http://study.163.com/webDev/login.htm',onSucess,{userName:hex_md5(uname),password:hex_md5(pwd)});	
+	httpGET('http://study.163.com/webDev/login.htm',onSucess,{userName:hex_md5(uname),password:hex_md5(pwd)});
 }
 function attention(onSucess) {
 	httpGET('http://study.163.com/webDev/attention.htm',onSucess);
@@ -176,9 +198,7 @@ extend(LoginForm.prototype,{
 });
 extend(LoginForm.prototype, emitter);
 
-/*
-* Notice 模块
-*/
+
 function Notice(opt) {
 
 	var options = opt||{};
@@ -211,21 +231,21 @@ extend(Notice.prototype, {
 	}
 });
 
-/*
-	Banner模块 轮播图
-*/
+
 function Banner(opt) {
 	var options = opt || {};
-	this.template = '<div class="imgwrap">\
+	this.imgwrap = '<div class="imgwrap">\
 	                    <a href="">\
 	                        <img src="./img/banner1.jpg" alt="banner1">\
 	                    </a>\
-	                </div>'
+	                </div>';
+	this.ctrl = html2node('<div class="ctrl"></div>');
 	extend(this, opt);
-	this.pointer = document.createElement('div');
-	this.pointer.className = 'ctrl';
+	this.wrap = html2node(this.imgwrap);
+	this.pointer = document.createElement('ul');
+	//this.pointer.className = 'ctrl';
 	for(var i = 0; i< this.list.length; i++){
-		var li = document.createElement('i');
+		var li = document.createElement('li');
 		function callback(count) {
 			
 			return function () {
@@ -237,8 +257,9 @@ function Banner(opt) {
 		li.addEventListener('click', callback.call(this,i));
 		this.pointer.appendChild(li);
 	}
-	this.container.appendChild(html2node(this.template));
-	this.container.appendChild(this.pointer);
+	this.container.appendChild(this.wrap);
+	this.ctrl.appendChild(this.pointer);
+	this.wrap.appendChild(this.ctrl);
 	this.link = this.container.getElementsByTagName('a')[0];
 	this.img = this.link.getElementsByTagName('img')[0];
 	this.oldnum = 0;
@@ -258,8 +279,8 @@ extend(Banner.prototype, {
 		this.img.style.transition = '';
 		this.img.src = this.list[num]['src'];
 		this.link.href = this.list[num]['href'];
-		this.pointer.getElementsByTagName('i')[this.oldnum].className = '';			
-		this.pointer.getElementsByTagName('i')[num].className = 'current';
+		this.pointer.getElementsByTagName('li')[this.oldnum].className = '';			
+		this.pointer.getElementsByTagName('li')[num].className = 'current';
 		setTimeout(function () {
 			this.img.style.transition = '0.5s';
 			this.img.style.opacity = 1;
@@ -274,12 +295,12 @@ extend(Banner.prototype, {
 	},
 	loop: function () {
 		//鼠标移上 停止轮播
-		this.container.addEventListener('mouseover', function () {
+		this.wrap.addEventListener('mouseover', function () {
 			window.clearInterval(this.interval);	
 			// console.log('stop');		
 		}.bind(this));
 		//鼠标移出 继续轮播
-		this.container.addEventListener('mouseout', function () {			
+		this.wrap.addEventListener('mouseout', function () {			
 			this.interval = setInterval(function () {
 				this.next();
 			}.bind(this), this.time);
@@ -291,6 +312,85 @@ extend(Banner.prototype, {
 		}.bind(this), this.time);
 	}
 });
+function getCourse(courseType) {
+	
+	function onSucess(response) {
+		
+		var info = JSON.parse(response);
+		//var courcelist = document.createElement('ul');
+		this.className = 'course clearfix';
+		this.innerHTML = '';
+		for(var i = 0; i < info.list.length; i++){
+			var ele = info.list[i];
+			if(ele.price == 0){
+				ele.price = '免费';
+			}
 
+			var str = '<li>\
+				<div class="picwrap">\
+				    <img src="'+ele.middlePhotoUrl+'" alt="">\
+				</div>\
+				<div class="title"><p>'+ele.name+'</p></div>\
+				<a class="provider">'+ele.provider+'</a>\
+				<div>\
+				    <span class="learner">'+ele.learnerCount+'</span>\
+				    <p class="price">'+ele.price+'</p>\
+				</div>\
+			</li>'
+			var li = html2node(str);
+			
+			this.appendChild(li);
+		}
 
+		// var xxx = document.getElementsByClassName('course')[0];
+		// this.parentNode.replaceChild(courcelist, xxx);
+	};
+	httpGET('http://study.163.com/webDev/couresByCategory.htm',onSucess.bind(this),courseType);
+	
+	// return result;
+}
 
+function TAB(opt) {
+	var options = opt || {};
+	extend(this, opt);
+	//debugger;
+	this._init();
+	this.change(this.active);
+}
+extend(TAB.prototype,{
+	_init : function() {
+		var ul = document.createElement('ul');
+		for(var card in this.cards){
+			var li = document.createElement('li');
+			li.className = card;
+			li.innerHTML = '<a>'+this.cards[card]+'</a>'
+			li.addEventListener('click', function () {
+				var name = card;
+				return function () {
+					this.change(name);
+				}.bind(this);
+			}.call(this))
+			ul.appendChild(li);
+
+			var div = document.createElement('div');
+			div.className = card;
+			this.board.appendChild(div);
+		}
+		this.topbar.appendChild(ul);
+
+	},
+	change: function(name) {
+		//clear		
+		var a = {};
+		while(a = this.container.getElementsByClassName('z-active')[0]){
+			var newname = a.className.replace(/\sz-active/, '');
+			a.className = newname;
+		}
+		//set
+		var e = this.container.getElementsByClassName(name);
+		for(var i =0; i<e.length; i++){
+			e[i].className = name + ' z-active';
+		}		
+	},
+
+});

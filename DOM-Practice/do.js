@@ -60,7 +60,7 @@ window.onload = function() {
 			{src:'./img/banner2.jpg',href:'http://study.163.com/'},
 			
 		],
-		time : 5000,
+		time : 500,
 
 	});
 	window.banner = banner;
@@ -77,7 +77,23 @@ window.onload = function() {
 		httpGET('http://study.163.com/webDev/couresByCategory.htm',callback,{pageNo:1,psize:20,type:'20'});
 	}
 	window.xyt = xyt;
-	//httpGET('http://study.163.com/webDev/hotcouresByCategory.htm',callback);
+	var tab ={
+	cards:{
+		design:'产品设计',
+		program:'编程语言',
+	},
+	container: document.getElementsByClassName('m-tab')[0],
+	topbar: document.getElementsByClassName('topbar')[0],
+	board: document.getElementsByClassName('board')[0],
+	active: 'design',
+};
+	new TAB(tab);
+	var ul = document.createElement('ul');
+	ul = document.getElementsByClassName('board')[0].getElementsByClassName('z-active')[0].appendChild(ul);
+	getCourse.call(ul,{pageNo:1,psize:20,type:'20'});
 
+	//httpGET('http://study.163.com/webDev/hotcouresByCategory.htm',callback);
+	// var abbb = getCourse();
+	// console.log(abbb);
 }
 
