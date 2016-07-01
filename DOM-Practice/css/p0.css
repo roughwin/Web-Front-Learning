@@ -19,7 +19,7 @@ body,button,input,keygen,legend,select,textarea{outline:0;font:12px/1.14 arial,\
 body{background:#fff;margin:0;min-width: 1616px;}
 p{margin: 0;padding: 0;}
 .f-cb:after{content:'.';display:block;clear:both;height:0;overflow:hidden;visibility:hidden}
-.g-mn{width:100%;height:2000px}
+.g-mn{width:100%;}
 .m-notice{background:#f3f3f3;}
 .m-notice .align{width:1205px;height:36px;margin:0 auto;line-height:36px;font-size:13px}
 .m-notice .content{float:left}
@@ -92,7 +92,7 @@ p{margin: 0;padding: 0;}
 .g-course{background:#f8f8f8;position:relative}
 .g-course .center{position: relative;width: 1206px;margin: 80px auto 0 auto;}
 .m-tab {float: left;}
-.m-tab .topbar li,.m-tab ul{display:inline-block;float:left}
+.m-tab .topbar li/*,.m-tab ul*/{display:inline-block;float:left}
 .m-tab .topbar a{display:inline-block;width:200px;height:50px;font-size:20px;line-height:50px;font-family:"微软雅黑";text-align:center;box-shadow:1px 1px 0 1px #eee;color:#000}
 .m-tab .topbar{height:69px;}
 .m-tab .topbar .z-active{background:#39a030;color:#fff}
@@ -104,21 +104,48 @@ p{margin: 0;padding: 0;}
 .clearfix{zoom:1;}
 
 .m-tab .course{margin:0;width: 960px;}
-.m-tab .course li{float:left;list-style-type:none;margin-right:10px;margin-top:18px;width:225px;height:228px;overflow:hidden;cursor:pointer;background-color: white;}
+.m-tab .course li{position: relative; font-size: 0;webkit-box-shadow: 0 1px 1px #e6e6e6;-moz-box-shadow: 0 1px 1px #e6e6e6;-o-box-shadow: 0 1px 1px #e6e6e6;box-shadow: 0 1px 1px #e6e6e6; float:left;list-style-type:none;margin-right:10px;margin-top:18px;width:225px;height:228px;/*overflow:hidden;*/cursor:pointer;background-color: white;}
 .m-tab .course img{width: 223px; height: 124px; padding:1px;}
-.m-tab .course .title{margin-top:5px;color:rgb(51, 51, 51);padding:0px 6px;font:12px/16.8px 微软雅黑;}
+.m-tab .course .title{margin-top:8px;color:#333333;padding:0px 6px;font:12px/12px 微软雅黑;}
 .m-tab .course .title p{display: inline-block;width: 213px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;color: #333;}
-.m-tab .course .provider{height: 32px;color: rgb(153, 153, 153);padding: 0px 6px;font: 12px/32px 微软雅黑;}
-.m-tab .course .learner{display: inline-block; color:#999;margin-left:4px;border:1px solid #999;border-radius:3px;width:40px;height:16px;background:url(../img/icon.png) no-repeat;background-position:3px -409px;padding-top:2px;padding-left:15px;font-size:12px}
-.m-tab .course .price{color: rgb(57, 160, 48);font: 12px/12px 微软雅黑;padding-top: 10px;}
+.m-tab .course .provider{color: #999999;padding: 0px 6px;font: 12px/32px 微软雅黑;}
+.m-tab .course .learner{display: inline-block; color:#999999;margin-left:4px;border:1px solid #999;border-radius:3px;height:16px;background:url(../img/icon.png) no-repeat;background-position:3px -409px;padding: 2px 5px 0 15px; font-size:12px}
+.m-tab .course .price{color: #ff3f00;font: 12px/12px 微软雅黑;padding-top: 7px;padding-left: 6px;}
+.m-tab .course .detail{display: none;}
+.m-tab .course li .detail{display: block;
+	position: absolute;
+	top:-11px;
+	left: 0;
+	width: 480px;
+	height: 228px;	
+	padding-top: 11px;
+	-webkit-box-shadow: 0 0 3px 1px #d4d3d3;
+	-moz-box-shadow: 0 0 3px 1px #d4d3d3;
+	-o-box-shadow: 0 0 3px 1px #d4d3d3;
+	box-shadow: 0 0 3px 1px #d4d3d3;
+	z-index: 999;
+	overflow: hidden;
+	color: #666;	
+	background: #fff;	}
+.m-tab .course .detail img{float: left;}
+.m-tab .course .detail .right{margin-left: 223px;}
 
-.m-tab .courseNum{width:300px;height:30px;margin-top:40px}
+.m-tab .course .detail .title{padding:0;margin: 15px 0 0 20px;font:18px/18px 微软雅黑;}
+.m-tab .course .detail .learner{border-width: 0;}
+.m-tab .course .detail .provider{display: block;}
+.m-tab .course .detail .classify{display: block;font: 12px/12px 微软雅黑;color: #999999}
+.m-tab .course .detail .describe{background-color: #f8f8f8; width: 100%; height: 100%;}
+.m-tab .course .detail .describe p{margin: 10px 0 0 10px; font: 14px/24px 微软雅黑;word-wrap: normal;}
+
+
+
+.m-tab .courseNum{width:300px;height:30px;margin:30px 18px 120px 0;float: right;}
 .m-tab .courseNum li{display:inline-block;width:20px;height:20px;text-align:center;line-height:20px;margin-right:4px;cursor:pointer}
 .m-tab .courseNum li:hover{background:#9dd8b1}
 .m-tab .courseNum-pre{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -280px}
 .m-tab .courseNum-next{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -353px}
 
-.u-proIntro{width:225px;height:230px;background:#fff;float:right;margin-top:26px;border:1px solid #eee}
+.u-proIntro{width:225px;background:#fff;float:right;margin-top:26px;margin-left: -230px; border:1px solid #eee}
 .proIntroVideo div:nth-of-type(1){height:55px;line-height:55px;border-bottom:1px solid #ddd;font-size:16px;padding-left:20px}
 .proIntroVideo div:nth-child(2){height:44px;font-style:14px;padding-left:20px;line-height:44px;color:#666}
 .proIntroVideo-f1{width:180px;height:110px;background:url(../img/videoImg.jpg) no-repeat;margin-left:20px;cursor:pointer}

@@ -312,47 +312,11 @@ extend(Banner.prototype, {
 		}.bind(this), this.time);
 	}
 });
-function getCourse(courseType) {
-	
-	function onSucess(response) {
-		
-		var info = JSON.parse(response);
-		//var courcelist = document.createElement('ul');
-		this.className = 'course clearfix';
-		this.innerHTML = '';
-		for(var i = 0; i < info.list.length; i++){
-			var ele = info.list[i];
-			if(ele.price == 0){
-				ele.price = '免费';
-			}
 
-			var str = '<li>\
-				<div class="picwrap">\
-				    <img src="'+ele.middlePhotoUrl+'" alt="">\
-				</div>\
-				<div class="title"><p>'+ele.name+'</p></div>\
-				<a class="provider">'+ele.provider+'</a>\
-				<div>\
-				    <span class="learner">'+ele.learnerCount+'</span>\
-				    <p class="price">'+ele.price+'</p>\
-				</div>\
-			</li>'
-			var li = html2node(str);
-			
-			this.appendChild(li);
-		}
-
-		// var xxx = document.getElementsByClassName('course')[0];
-		// this.parentNode.replaceChild(courcelist, xxx);
-	};
-	httpGET('http://study.163.com/webDev/couresByCategory.htm',onSucess.bind(this),courseType);
-	
-	// return result;
-}
 
 function TAB(opt) {
 	var options = opt || {};
-	extend(this, opt);
+	extend(this, options);
 	//debugger;
 	this._init();
 	this.change(this.active);
@@ -390,7 +354,93 @@ extend(TAB.prototype,{
 		var e = this.container.getElementsByClassName(name);
 		for(var i =0; i<e.length; i++){
 			e[i].className = name + ' z-active';
-		}		
+		}
+		//fill
+		this.fill(this.board.getElementsByClassName('z-active')[0]);
+		
 	},
 
 });
+
+function Pager(opt) {
+	var options = opt || {};
+	extend(this,options);
+	this.lis = [];
+	//this.start = 1;
+	this._init();
+}
+extend(Pager.prototype, {
+	_init:function () {
+		//this.max = this.ul.children.length-2;
+		for(var i = 0; i < this.ul.children.length-1; i++){
+			this.lis[i]=this.ul.children[i+1];
+			this.lis[i].addEventListener('click', function () {
+				var count = i;
+				return function () {
+					this._onclick(count);
+				}.bind(this);
+			}.call(this));
+		}
+	},
+	_refresh:function () {
+		for(var i = 0; i < this.lis.length; i++){
+			templi.innerHTML = ''+this.start+i;
+		}
+	},
+	_onclick:function(count) {
+		this.emit('click',count);
+		//alert(count);
+	}
+});
+extend(Pager.prototype,emitter);
+function getCourse(courseType) {
+	
+	function onSucess(response) {
+		
+		var info = JSON.parse(response);
+		//var courcelist = document.createElement('ul');
+		this.className = 'course clearfix';
+		this.innerHTML = '';
+		for(var i = 0; i < info.list.length; i++){
+			var ele = info.list[i];
+			if(ele.price == 0){
+				ele.price = '免费';
+			}
+			else{
+				ele.price = '¥ '+ele.price;
+			}
+
+			var str = '<li>\
+				<div class="picwrap">\
+				    <img src="'+ele.middlePhotoUrl+'" alt="">\
+				</div>\
+				<div class="title"><p>'+ele.name+'</p></div>\
+				<a class="provider">'+ele.provider+'</a>\
+				<div>\
+				    <span class="learner">'+ele.learnerCount+'</span>\
+				    <p class="price">'+ele.price+'</p>\
+				</div>\
+			</li>'
+			var li = html2node(str);
+
+			this.appendChild(li);
+		}
+
+		// var xxx = document.getElementsByClassName('course')[0];
+		// this.parentNode.replaceChild(courcelist, xxx);
+	};
+	httpGET('http://study.163.com/webDev/couresByCategory.htm',onSucess.bind(this),courseType);
+	
+	// return result;
+}
+function getHotCourse() {
+	function onSucess(response) {
+		var info = JSON.parse(response);
+	}
+
+
+	httpGET('http://study.163.com/webDev/hotcouresByCategory.htm',function (response) {
+			
+			var xxx = JSON.parse(response);
+		});
+}
