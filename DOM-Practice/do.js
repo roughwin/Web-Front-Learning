@@ -79,7 +79,7 @@ window.onload = function() {
 
 	}
 	window.xyt = xyt;
-	var tab ={
+var tab ={
 	cards:{
 		design:'产品设计',
 		program:'编程语言',
@@ -88,33 +88,41 @@ window.onload = function() {
 	topbar: document.getElementsByClassName('topbar')[0],
 	board: document.getElementsByClassName('board')[0],
 	active: 'design',
-	fill: function (ele) {		
+	fill: function (ele) {
+		var coursetype = '';	
+		if(ele.className.indexOf('design') > -1){
+			coursetype = '10';
+		}else {
+			coursetype = '20';
+		}
 		var ul = ele.getElementsByClassName('course')[0];
-		if(ele.className=='design z-active')
-		{
-			//getCourse.call(ul,{pageNo:1,psize:20,type:'10'});
-		}
-		else
-		{
-			//getCourse.call(ul,{pageNo:1,psize:20,type:'20'});
-		}
-		
+		var pagerul = ele.getElementsByClassName('pager')[0];
+		var pager = new Pager({
+			ul:pagerul,
+			start:1,
+		});
+		pager.on('click',function (count) { 
+			console.log(this);
+			console.log(count);			
+			getCourse.call(ul,{pageNo:count+this.start,psize:20,type:coursetype});
+		});		
+		getCourse.call(ul,{pageNo:1,psize:20,type:coursetype});
 	},
 };
 	new TAB(tab);
 
-	var ul = document.getElementsByClassName('courseNum')[0];
-	var pager = new Pager({
-		ul:ul,
-		start:1,
-	});
-	pager.on('click',function (count) {
-		//刷新列表
-		console.log(this);
-		console.log(count);
-		var ul = this.ul.parentNode.getElementsByClassName('course')[0];
-		getCourse.call(ul,{pageNo:count+this.start,psize:20,type:'10'});
-	});
+	// var ul = document.getElementsByClassName('courseNum')[0];
+	// var pager = new Pager({
+	// 	ul:ul,
+	// 	start:1,
+	// });
+	// pager.on('click',function (count) {
+	// 	//刷新列表
+	// 	console.log(this);
+	// 	console.log(count);
+	// 	var ul = this.ul.parentNode.getElementsByClassName('course')[0];
+	// 	getCourse.call(ul,{pageNo:count+this.start,psize:20,type:'10'});
+	// });
 	
 }
 

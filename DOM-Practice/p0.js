@@ -393,12 +393,13 @@ extend(Pager.prototype, {
 	}
 });
 extend(Pager.prototype,emitter);
-function getCourse(courseType) {
-	
+
+function getCourse(courseType) {	
 	function onSucess(response) {
 		
 		var info = JSON.parse(response);
 		//var courcelist = document.createElement('ul');
+		// debugger;
 		this.className = 'course clearfix';
 		this.innerHTML = '';
 		for(var i = 0; i < info.list.length; i++){
@@ -420,9 +421,19 @@ function getCourse(courseType) {
 				    <span class="learner">'+ele.learnerCount+'</span>\
 				    <p class="price">'+ele.price+'</p>\
 				</div>\
+				<div class="detail">\
+                    <img src="'+ele.middlePhotoUrl+'" alt="课程图片">\
+                    <div class="right clearfix">\
+                        <h5 class="title">'+ele.name+'</h5>\
+                        <span class="learner">'+ele.learnerCount+'人在学</span>\
+                        <a class="provider">发布者: '+ele.provider+'</a>\
+                        <a class="classify">'+ele.categoryName+'</a>\
+                    </div>\
+                    <div class="describe"><p>'+ele.description+'</p></div>\
+                </div>\
 			</li>'
 			var li = html2node(str);
-
+			
 			this.appendChild(li);
 		}
 
