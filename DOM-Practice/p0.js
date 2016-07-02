@@ -447,11 +447,40 @@ function getCourse(courseType) {
 function getHotCourse() {
 	function onSucess(response) {
 		var info = JSON.parse(response);
+		var hotlist_c = 0;
+		var intervalID = 0;
+		//debugger;
+		var hotlist = document.getElementsByClassName('m-hot')[0].getElementsByTagName('div')[0];
+		for(var  i = 0; i < 10; i++){
+			debugger;
+			if(hotlist.firstChild){
+				hotlist.removeChild(hotlist.firstChild);
+			}
+		}
+		hotlist.innerHTML = '';
+		for (var i =0; i< info.length; i++){
+			var str = '<div class="course">\
+            <img src="'+info[i].smallPhotoUrl+'" width="50px" height="50px">\
+            <div class="right">\
+                <div>\
+                <a class="title">'+info[i].name+'</a>\
+                </div>\
+                <span class="learner">'+info[i].learnerCount+'</span>\
+            </div>\
+        </div>';
+        	var course = html2node(str);
+        	hotlist.appendChild(course);
+		}
+		intervalID = setInterval(function () {
+			hotlist.style.transform = 'translateY(-' + 70*hotlist_c + 'px)';
+			console.log(hotlist_c);
+			if(hotlist_c > 9){
+				clearInterval(intervalID);
+				console.log('done');
+				//getHotCourse();
+			}			
+			hotlist_c += 1;
+		}, 5000);
 	}
-
-
-	httpGET('http://study.163.com/webDev/hotcouresByCategory.htm',function (response) {
-			
-			var xxx = JSON.parse(response);
-		});
+	httpGET('http://study.163.com/webDev/hotcouresByCategory.htm',onSucess);
 }

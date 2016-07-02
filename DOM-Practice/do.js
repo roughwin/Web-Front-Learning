@@ -110,6 +110,7 @@ var tab ={
 	},
 };
 	new TAB(tab);
+	getHotCourse();
 
 	// var ul = document.getElementsByClassName('courseNum')[0];
 	// var pager = new Pager({
