@@ -141,8 +141,7 @@ function login(uname, pwd,onSucess) {
 function attention(onSucess) {
 	httpGET('http://study.163.com/webDev/attention.htm',onSucess);
 }
-var template = 
-'<div class="login-layer">\
+var template = '<div class="login-layer">\
 	    <form action="http://study.163.com/webDev/login.htm" method="get" class="m-loginform">\
 	        <label class="title">登录网易云课堂</label>\
 	        <span class="close"></span>\
@@ -151,7 +150,7 @@ var template =
 	        </div>\
 	        <div class="password">\
 	            <input type="password" placeholder="密码">\
-	        </div>     \
+	        </div>\
 	        <input type="button" class="submit" value="">\
 	    </form>\
 	    <div class="zoom"></div>\
@@ -178,12 +177,12 @@ function LoginForm(opt) {
 extend(LoginForm.prototype,{
 	 show: function() {
 	 	document.body.appendChild(this.container);
-		this.mask.style.display = 'block';
-		this.form.style.display = 'block';
+		//this.mask.style.display = 'block';
+		this.container.style.display = 'block';
 	},
 	hide: function() {
-		this.form.style.display = 'none';
-		this.mask.style.display = 'none';
+		this.container.style.display = 'none';
+		//this.mask.style.display = 'none';
 	},
 	_onLogin: function() {
 		this.emit('login');
@@ -444,20 +443,15 @@ function getCourse(courseType) {
 	
 	// return result;
 }
-function getHotCourse() {
+function getHotCourse(count) {
 	function onSucess(response) {
 		var info = JSON.parse(response);
-		var hotlist_c = 0;
+		var hotlist_c = count;
 		var intervalID = 0;
 		//debugger;
 		var hotlist = document.getElementsByClassName('m-hot')[0].getElementsByTagName('div')[0];
-		for(var  i = 0; i < 10; i++){
-			debugger;
-			if(hotlist.firstChild){
-				hotlist.removeChild(hotlist.firstChild);
-			}
-		}
-		hotlist.innerHTML = '';
+
+		//hotlist.innerHTML = '';
 		for (var i =0; i< info.length; i++){
 			var str = '<div class="course">\
             <img src="'+info[i].smallPhotoUrl+'" width="50px" height="50px">\
@@ -472,14 +466,17 @@ function getHotCourse() {
         	hotlist.appendChild(course);
 		}
 		intervalID = setInterval(function () {
-			hotlist.style.transform = 'translateY(-' + 70*hotlist_c + 'px)';
-			console.log(hotlist_c);
-			if(hotlist_c > 9){
-				clearInterval(intervalID);
-				console.log('done');
-				//getHotCourse();
+			//debugger;
+			//hotlist.style.transform = 'translateY(-' + offset + 'px)';
+			hotlist.removeChild(hotlist.firstChild);
+			//console.log(hotlist_c);
+			//console.log(offset);
+			if(hotlist_c > 19){
+				window.clearInterval(intervalID);
+				//console.log('done');
+				getHotCourse(0);
 			}			
-			hotlist_c += 1;
+			hotlist_c += 1;			
 		}, 5000);
 	}
 	httpGET('http://study.163.com/webDev/hotcouresByCategory.htm',onSucess);

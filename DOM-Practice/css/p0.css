@@ -55,8 +55,9 @@ p{margin: 0;padding: 0;}
 .m-conNav a:hover{color:green}
 .m-conSearch{background:url(../img/icon.png);width:25px;height:22px;padding-left:10px;float:right;background-position:0 -46px}
 .m-conSearch:hover{cursor:pointer;background-position:0 -75px}
-.zoom{background:rgba(0,0,0,.8);z-index:11;width:100%;top:0;bottom:0;display:none;position:fixed;height:100%}
-.m-loginform{position:fixed;left:50%;top:50%;margin-left:-195px;margin-top:-145px;width:390px;height:290px;border:1px #ccc solid;background:#fff;z-index:100;display:none}
+.zoom{background:rgba(0,0,0,.8);z-index:11;width:100%;top:0;bottom:0;position:fixed;height:100%}
+.login-layer{display: none;}
+.m-loginform{position:fixed;left:50%;top:50%;margin-left:-195px;margin-top:-145px;width:390px;height:290px;border:1px #ccc solid;background:#fff;z-index:100;}
 .m-loginform .title{display:block;line-height:68px;padding-left:40px;font-family:"微软雅黑";font-weight:700;font-size:18px}
 .m-loginform div>input{border:1px #dfdfdf solid;background-color:#fafafa;width:293px;height:43px;margin-left:40px;padding-left:14px;box-shadow:2px 2px 2px 2px #f1f1f1 inset; }
 
@@ -68,7 +69,7 @@ p{margin: 0;padding: 0;}
 .m-loginform .close{position:absolute;right:10px;top:10px;width:20px;height:16px;background:url(../img/icon.png)}
 .m-loginform .close:hover{background-position:0 -19px}
 
-.m-banner{position:relative;overflow:hidden;z-index: 10;width: 100%;}
+.m-banner{position:relative;overflow:hidden;width: 100%;}
 .m-banner .imgwrap {position: relative; width:1616px; height: 460px;margin: 0 auto;}
 .m-banner a{display: block; height: 100%;}
 .m-banner img {display: block; width:100%;height: 100%;}
@@ -105,6 +106,7 @@ p{margin: 0;padding: 0;}
 .clearfix:after{content: '.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}
 .clearfix{zoom:1;}
 
+
 .m-tab .course{margin:0;width: 960px;}
 .m-tab .course li{position: relative; font-size: 0;webkit-box-shadow: 0 1px 1px #e6e6e6;-moz-box-shadow: 0 1px 1px #e6e6e6;-o-box-shadow: 0 1px 1px #e6e6e6;box-shadow: 0 1px 1px #e6e6e6; float:left;list-style-type:none;margin-right:10px;margin-top:18px;width:225px;height:228px;/*overflow:hidden;*/cursor:pointer;background-color: white;}
 .m-tab .course img{width: 223px; height: 124px; padding:1px;}
@@ -113,7 +115,7 @@ p{margin: 0;padding: 0;}
 .m-tab .course .provider{color: #999999;padding: 0px 6px;font: 12px/32px 微软雅黑;}
 .m-tab .course .learner{display: inline-block; color:#999999;margin-left:4px;border:1px solid #999;border-radius:3px;height:16px;background:url(../img/icon.png) no-repeat;background-position:3px -409px;padding: 2px 5px 0 15px; font-size:12px}
 .m-tab .course .price{color: #ff3f00;font: 12px/12px 微软雅黑;padding-top: 7px;padding-left: 6px;}
-.m-tab .course .detail{opacity: 0;transition-duration: 0s;}
+.m-tab .course .detail{opacity: 0;transition-duration: 0s;position: absolute;top:-10000px;}
 .m-tab .course li:hover .detail{
 	display: block;
 	transition-delay: 0.5s;
@@ -152,21 +154,23 @@ p{margin: 0;padding: 0;}
 .m-tab .pager-next{cursor:pointer;position:relative;top:10px;display:inline-block;width:40px;height:25px;background:url(../img/icon.png);background-position:0 -353px}
 
 .u-proIntro{width:225px;background:#fff;float:right;margin-top:26px;margin-left: -230px; border:1px solid #eee}
-.proIntroVideo div:nth-of-type(1){height:55px;line-height:55px;border-bottom:1px solid #ddd;font-size:16px;padding-left:20px}
+/*.proIntroVideo div:nth-of-type(1){height:55px;line-height:55px;border-bottom:1px solid #ddd;font-size:16px;padding-left:20px}
 .proIntroVideo div:nth-child(2){height:44px;font-style:14px;padding-left:20px;line-height:44px;color:#666}
-.proIntroVideo-f1{width:180px;height:110px;background:url(../img/videoImg.jpg) no-repeat;margin-left:20px;cursor:pointer}
+*/.proIntroVideo-f1{width:180px;height:110px;background:url(../img/videoImg.jpg) no-repeat;margin-left:20px;cursor:pointer}
 .proIntroHot{height:780px;margin-top:40px;border:1px solid #ddd}
 .proIntroHot .hot-f1{padding-left:20px;border-bottom:1px solid #ddd;height:55px;line-height:55px;font-size:16px}
-.m-player{width:1000px;height:1000px;position:fixed;top:0;left:0;display:none}
-.u-bg{background:#000;filter:alpha(opacity=70);width:100%;height:100%;position:fixed;top:0;bottom:0;left:0;right:0;z-index:99;opacity:.7}
-.m-playerBox{width:1000px;height:650px;background:#fff;z-index:999;position:absolute;left:50%;margin-left:-320px}
+
+.m-player{width:100%;height:100%;position:fixed;top:0;left:0;display:none;}
+/*.u-bg{background:#000;filter:alpha(opacity=70);width:100%;height:100%;position:fixed;top:0;bottom:0;left:0;right:0;z-index:99;opacity:.7}*/
+.m-playerBox{width:1000px;height:650px;background:#fff;z-index:999;position:fixed;left:50%;top: 50%;margin-top:-390px;margin-left:-510px;  }
 .playerVideo{margin-left:-475px;left:50%;margin-top:10px;position:absolute;width:950px}
 .m-playerBox h3{font-size:20px;width:300px;padding-top:10px;margin-left:30px}
 .playerBtn{display:inline-block;width:15px;height:18px;background:url(../img/icon.png) no-repeat;cursor:pointer;position:absolute;right:10px;top:10px;z-index:1000}
+
 .u-courList{width:960px;height:1240px;background:#FBF9F9;float:left}
 .courseShow{width:225px;height:228px;margin-top:20px;margin-right:20px;background:#00f;box-shadow:0 1px 0 1px #f1f1f1;cursor:pointer}
 
-.m-hot {height: 720px; overflow: hidden;}
+.m-hot {height: 710px; overflow: hidden;}
 .m-hot .course{height:70px;width:226px;overflow:hidden;}
 .m-hot .course img{display:inline-block;width:50px;height:50px;margin-top:20px;margin-left:20px}
 .m-hot .right{float: right;}
@@ -187,3 +191,11 @@ p{margin: 0;padding: 0;}
 .links li a{font-size:15px;color:#ccc;line-height:30px}
 .links li a:hover{text-decoration:underline}
 .weibo{position:relative;margin: 0;top:4px;right:-3px;display:inline-block;height:20px;width:40px;background:url(../img/icon.png) no-repeat;background-position:0 -449px;cursor:pointer}
+
+@media screen and (max-width: 1205px){
+	body{background:#fff;margin:0;min-width: 1205px;}
+	.g-course .center{position: relative;width: 965px;margin: 80px auto 0 auto;}
+	.m-tab .course{margin:0;width: 920px;height: 1230px; overflow: hidden; }
+	.m-tab .pager{width:300px;height:30px;margin:30px 210px 120px 0;float: right;}
+
+}

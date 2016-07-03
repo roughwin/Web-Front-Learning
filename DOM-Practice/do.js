@@ -60,7 +60,7 @@ window.onload = function() {
 			{src:'./img/banner2.jpg',href:'http://study.163.com/'},
 			
 		],
-		time : 500,
+		time : 5000,
 
 	});
 	window.banner = banner;
@@ -79,6 +79,16 @@ window.onload = function() {
 
 	}
 	window.xyt = xyt;
+
+	// 视频播放
+	var VideoPlayer = document.getElementsByClassName('m-player')[0];
+	document.getElementsByClassName('proIntroVideo-f1')[0].addEventListener('click', function () {
+		VideoPlayer.style.display = 'block';
+	});
+	VideoPlayer.getElementsByClassName('playerBtn')[0].addEventListener('click', function () {
+		VideoPlayer.style.display = 'none';
+	});
+
 var tab ={
 	cards:{
 		design:'产品设计',
@@ -109,8 +119,9 @@ var tab ={
 		getCourse.call(ul,{pageNo:1,psize:20,type:coursetype});
 	},
 };
+
 	new TAB(tab);
-	getHotCourse();
+	getHotCourse(10);
 
 	// var ul = document.getElementsByClassName('courseNum')[0];
 	// var pager = new Pager({
